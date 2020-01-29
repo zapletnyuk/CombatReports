@@ -6,4 +6,14 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Assets\Military-Camouflage.ico" />
+    <None Remove="Assets\Military-Camouflage.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\Military-Camouflage.ico" />
+    <Resource Include="Assets\Military-Camouflage.jpg" />
+  </ItemGroup>
+
 </Project>
