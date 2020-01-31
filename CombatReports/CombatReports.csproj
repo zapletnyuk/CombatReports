@@ -36,8 +36,4 @@
     <Resource Include="Assets\Military-Camouflage.jpg" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="TableForms\" />
-  </ItemGroup>
-
 </Project>

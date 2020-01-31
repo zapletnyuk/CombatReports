@@ -100,20 +100,20 @@
         </ComboBox>
 
         <ComboBox Grid.Row="1" Grid.Column="4" Text="Бойові донесення типу В.8" IsEditable="True" 
-                  IsReadOnly="True" Style="{StaticResource ComboBoxes}">
+                  IsReadOnly="True" x:Name="TextDocumentsTypeB8ComboBox" Style="{StaticResource ComboBoxes}" SelectionChanged="TextDocumentsTypeB8ComboBox_SelectionChanged">
             <ComboBoxItem Content="Бойове донесення 8.1" />
             <ComboBoxItem Content="Бойове донесення 8.2" />
         </ComboBox>
 
         <ComboBox Grid.Row="3" Grid.Column="0" Text="Бойові донесення типу В.3" IsEditable="True" 
-                  IsReadOnly="True" Style="{StaticResource ComboBoxes}">
+                  IsReadOnly="True" x:Name="TableDocumentsTypeB3ComboBox" Style="{StaticResource ComboBoxes}" SelectionChanged="TableDocumentsTypeB3ComboBox_SelectionChanged">
             <ComboBoxItem Content="Бойове донесення 3.2" />
             <ComboBoxItem Content="Бойове донесення 3.3" />
             <ComboBoxItem Content="Бойове донесення 3.4" />
         </ComboBox>
 
         <ComboBox Grid.Row="3" Grid.Column="2" Text="Бойові донесення типу В.4" IsEditable="True" 
-                  IsReadOnly="True" Style="{StaticResource ComboBoxes}">
+                  IsReadOnly="True" x:Name="TableDocumentsTypeB4ComboBox" Style="{StaticResource ComboBoxes}" SelectionChanged="TableDocumentsTypeB4ComboBox_SelectionChanged">
             <ComboBoxItem Content="Бойове донесення 4.1" />
             <ComboBoxItem Content="Бойове донесення 4.2" />
         </ComboBox>
