@@ -1,0 +1,16 @@
+﻿<Window x:Class="CombatReports.DocumentExamplesForms.TextExamples.TypeB3.Form3_10_Example"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Бойове донесення 3.10, зразок"
+        WindowStartupLocation="CenterScreen"
+        Height="637" 
+        Width="519">
+
+    <Window.Background>
+        <ImageBrush ImageSource="../../../Assets/DocumentExamples/3.10.PNG" />
+    </Window.Background>
+
+</Window>

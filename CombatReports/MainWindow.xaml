@@ -6,7 +6,7 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Icon="Assets/Military-Camouflage.ico"
-        Title="Main Menu" 
+        Title="Головне меню" 
         Height="415" 
         Width="880"
         MinHeight="415"
@@ -89,7 +89,7 @@
         <Label Grid.Row="4" Grid.Column="0" Content="Пошук донесень" Style="{StaticResource Labels}" />
 
         <ComboBox Grid.Row="1" Grid.Column="0" Text="Бойові донесення типу В.3" IsEditable="True" 
-                  IsReadOnly="True" Style="{StaticResource ComboBoxes}">
+                  IsReadOnly="True" x:Name="TextDocumentsTypeB3ComboBox" Style="{StaticResource ComboBoxes}" SelectionChanged="TextDocumentsTypeB3ComboBox_SelectionChanged">
             <ComboBoxItem Content="Бойове донесення 3.10" />
             <ComboBoxItem Content="Бойове донесення 3.24" />
         </ComboBox>
