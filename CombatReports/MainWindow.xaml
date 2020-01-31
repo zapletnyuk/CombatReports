@@ -95,7 +95,7 @@
         </ComboBox>
 
         <ComboBox Grid.Row="1" Grid.Column="2" Text="Бойові донесення типу В.4" IsEditable="True" 
-                  IsReadOnly="True" Style="{StaticResource ComboBoxes}">
+                  IsReadOnly="True" x:Name="TextDocumentsTypeB4ComboBox" Style="{StaticResource ComboBoxes}" SelectionChanged="TextDocumentsTypeB4ComboBox_SelectionChanged">
             <ComboBoxItem Content="Бойове донесення 4.6" />
         </ComboBox>
 

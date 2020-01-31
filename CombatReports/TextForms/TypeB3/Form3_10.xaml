@@ -7,9 +7,9 @@
         WindowStartupLocation="CenterScreen"
         Icon="../../Assets/Military-Camouflage.ico"
         Title="Бойове донесення 3.10" 
-        Height="500" 
+        Height="480" 
         Width="890"
-        MinHeight="500"
+        MinHeight="480"
         MinWidth="890"
         Background="LightBlue">
     
@@ -71,6 +71,7 @@
             <Setter Property="Control.Margin" Value="0, 15, 10, 0" />
         </Style>
     </Window.Resources>
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40" />

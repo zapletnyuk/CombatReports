@@ -1,14 +1,14 @@
-﻿using System.Windows;
-using CombatReports.DocumentExamplesForms.TextExamples.TypeB3;
+﻿using CombatReports.DocumentExamplesForms.TextExamples.TypeB4;
+using System.Windows;
 
-namespace CombatReports.TextForms.TypeB3
+namespace CombatReports.TextForms.TypeB4
 {
     /// <summary>
-    /// Interaction logic for Form3_10.xaml
+    /// Interaction logic for Form4_6.xaml
     /// </summary>
-    public partial class Form3_10 : Window
+    public partial class Form4_6 : Window
     {
-        public Form3_10()
+        public Form4_6()
         {
             InitializeComponent();
         }
@@ -22,8 +22,8 @@ namespace CombatReports.TextForms.TypeB3
 
         private void ExampleButton_Click(object sender, RoutedEventArgs e)
         {
-            Form3_10_Example form3_10_Example = new Form3_10_Example();
-            form3_10_Example.Show();
+            Form4_6_Example form4_6_Example = new Form4_6_Example();
+            form4_6_Example.Show();
         }
     }
 }
