@@ -73,8 +73,8 @@ namespace CombatReports.TableForms.TypeB4
             Word.Range par4 = objDoc.Bookmarks.get_Item(ref objEndOfDocFlag).Range;
             par4.Font.Size = 14;
             par4.Font.Name = "Times New Roman";
-            par4.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphJustify; 
-            par4.ParagraphFormat.LineSpacing = 18; 
+            par4.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphJustify;
+            par4.ParagraphFormat.LineSpacing = 18;
             par4.ParagraphFormat.FirstLineIndent = objWord.InchesToPoints((float)0.0);
             par4.ParagraphFormat.SpaceAfter = 0;
             par4.ParagraphFormat.SpaceBefore = 0;
@@ -87,7 +87,7 @@ namespace CombatReports.TableForms.TypeB4
             par5.Font.Size = 14;
             par5.Font.Name = "Times New Roman";
             par5.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphJustify;
-            par5.ParagraphFormat.LineSpacing = 18; 
+            par5.ParagraphFormat.LineSpacing = 18;
             par5.ParagraphFormat.FirstLineIndent = objWord.InchesToPoints((float)0.0);
             par5.ParagraphFormat.SpaceAfter = 0;
             par5.ParagraphFormat.SpaceBefore = 0;

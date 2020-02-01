@@ -142,7 +142,7 @@ namespace CombatReports.TableForms.TypeB3
             tableObj.Cell(2, 3).VerticalAlignment = Word.WdCellVerticalAlignment.wdCellAlignVerticalTop;
             tableObj.Cell(2, 4).Range.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphCenter;
             tableObj.Cell(2, 4).VerticalAlignment = Word.WdCellVerticalAlignment.wdCellAlignVerticalTop;
-            
+
             for (int i = 3; i <= 18; i++)
             {
                 tableObj.Cell(i, 1).Range.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphLeft;
@@ -237,7 +237,7 @@ namespace CombatReports.TableForms.TypeB3
             par9.Font.Size = 14;
             par9.Font.Name = "Times New Roman";
             par9.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphJustify;
-            par9.ParagraphFormat.LineSpacing = 18; 
+            par9.ParagraphFormat.LineSpacing = 18;
             par9.ParagraphFormat.FirstLineIndent = objWord.InchesToPoints((float)0.0);
             par9.ParagraphFormat.SpaceBefore = 20;
             // Генерація вмісту

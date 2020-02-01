@@ -32,9 +32,9 @@ namespace CombatReports.TableForms.TypeB3
             Word.Range par1 = objDoc.Bookmarks.get_Item(ref objEndOfDocFlag).Range;
             par1.Font.Size = 14;
             par1.Font.Name = "Times New Roman";
-            par1.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphJustify; 
-            par1.ParagraphFormat.LineSpacing = 18; 
-            par1.ParagraphFormat.FirstLineIndent = objWord.InchesToPoints((float)0.0); 
+            par1.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphJustify;
+            par1.ParagraphFormat.LineSpacing = 18;
+            par1.ParagraphFormat.FirstLineIndent = objWord.InchesToPoints((float)0.0);
             par1.ParagraphFormat.SpaceAfter = 0;
             par1.ParagraphFormat.SpaceBefore = 0;
             // Генерація вмісту
@@ -46,9 +46,9 @@ namespace CombatReports.TableForms.TypeB3
             Word.Range par2 = objDoc.Bookmarks.get_Item(ref objEndOfDocFlag).Range;
             par2.Font.Size = 14;
             par2.Font.Name = "Times New Roman";
-            par2.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphJustify; 
-            par2.ParagraphFormat.LineSpacing = 18; 
-            par2.ParagraphFormat.FirstLineIndent = objWord.InchesToPoints((float)0.0); 
+            par2.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphJustify;
+            par2.ParagraphFormat.LineSpacing = 18;
+            par2.ParagraphFormat.FirstLineIndent = objWord.InchesToPoints((float)0.0);
             par2.ParagraphFormat.SpaceAfter = 0;
             par2.ParagraphFormat.SpaceBefore = 0;
             // Генерація вмісту
@@ -59,9 +59,9 @@ namespace CombatReports.TableForms.TypeB3
             Word.Range par3 = objDoc.Bookmarks.get_Item(ref objEndOfDocFlag).Range;
             par3.Font.Size = 14;
             par3.Font.Name = "Times New Roman";
-            par3.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphJustify; 
-            par3.ParagraphFormat.LineSpacing = 18; 
-            par3.ParagraphFormat.FirstLineIndent = objWord.InchesToPoints((float)0.0); 
+            par3.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphJustify;
+            par3.ParagraphFormat.LineSpacing = 18;
+            par3.ParagraphFormat.FirstLineIndent = objWord.InchesToPoints((float)0.0);
             par3.ParagraphFormat.SpaceAfter = 0;
             par3.ParagraphFormat.SpaceBefore = 0;
             // Генерація вмісту
@@ -72,9 +72,9 @@ namespace CombatReports.TableForms.TypeB3
             Word.Range par4 = objDoc.Bookmarks.get_Item(ref objEndOfDocFlag).Range;
             par4.Font.Size = 14;
             par4.Font.Name = "Times New Roman";
-            par4.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphJustify; 
-            par4.ParagraphFormat.LineSpacing = 18; 
-            par4.ParagraphFormat.FirstLineIndent = objWord.InchesToPoints((float)0.0); 
+            par4.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphJustify;
+            par4.ParagraphFormat.LineSpacing = 18;
+            par4.ParagraphFormat.FirstLineIndent = objWord.InchesToPoints((float)0.0);
             par4.ParagraphFormat.SpaceAfter = 0;
             par4.ParagraphFormat.SpaceBefore = 0;
             // Генерація вмісту
@@ -85,9 +85,9 @@ namespace CombatReports.TableForms.TypeB3
             Word.Range par5 = objDoc.Bookmarks.get_Item(ref objEndOfDocFlag).Range;
             par5.Font.Size = 14;
             par5.Font.Name = "Times New Roman";
-            par5.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphJustify; 
-            par5.ParagraphFormat.LineSpacing = 18; 
-            par5.ParagraphFormat.FirstLineIndent = objWord.InchesToPoints((float)0.0); 
+            par5.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphJustify;
+            par5.ParagraphFormat.LineSpacing = 18;
+            par5.ParagraphFormat.FirstLineIndent = objWord.InchesToPoints((float)0.0);
             par5.ParagraphFormat.SpaceAfter = 0;
             par5.ParagraphFormat.SpaceBefore = 0;
             // Генерація вмісту
@@ -99,8 +99,8 @@ namespace CombatReports.TableForms.TypeB3
             par6.Font.Size = 14;
             par6.Font.Name = "Times New Roman";
             par6.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphCenter;
-            par6.ParagraphFormat.LineSpacing = 12; 
-            par6.ParagraphFormat.FirstLineIndent = objWord.InchesToPoints((float)0.0); 
+            par6.ParagraphFormat.LineSpacing = 12;
+            par6.ParagraphFormat.FirstLineIndent = objWord.InchesToPoints((float)0.0);
             par6.ParagraphFormat.SpaceAfter = 1;
             // Генерація вмісту
             par6.Text = "Наявний час розподілити";
@@ -130,7 +130,7 @@ namespace CombatReports.TableForms.TypeB3
             tableObj.Cell(2, 3).VerticalAlignment = Word.WdCellVerticalAlignment.wdCellAlignVerticalTop;
             tableObj.Cell(2, 4).Range.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphCenter;
             tableObj.Cell(2, 4).VerticalAlignment = Word.WdCellVerticalAlignment.wdCellAlignVerticalTop;
-            
+
             for (int i = 3; i <= 18; i++)
             {
                 tableObj.Cell(i, 1).Range.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphLeft;
@@ -219,14 +219,14 @@ namespace CombatReports.TableForms.TypeB3
             tableObj.Cell(18, 3).Range.Text = textBox52.Text;
             tableObj.Cell(18, 4).Range.Text = textBox53.Text;
             par7.InsertParagraphAfter();
-            
+
             // Восьмий параграф, форматування
             Word.Range par8 = objDoc.Bookmarks.get_Item(ref objEndOfDocFlag).Range;
             par8.Font.Size = 14;
             par8.Font.Name = "Times New Roman";
-            par8.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphJustify; 
-            par8.ParagraphFormat.LineSpacing = 18; 
-            par8.ParagraphFormat.FirstLineIndent = objWord.InchesToPoints((float)0.0); 
+            par8.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphJustify;
+            par8.ParagraphFormat.LineSpacing = 18;
+            par8.ParagraphFormat.FirstLineIndent = objWord.InchesToPoints((float)0.0);
             par8.ParagraphFormat.SpaceBefore = 20;
             // Генерація вмісту
             par8.Text = "Начальник штабу " + textBox54.Text + " мб";
