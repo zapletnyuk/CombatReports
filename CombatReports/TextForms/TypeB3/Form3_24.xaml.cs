@@ -13,17 +13,22 @@ namespace CombatReports.TextForms.TypeB3
             InitializeComponent();
         }
 
+        private void ExampleButton_Click(object sender, RoutedEventArgs e)
+        {
+            Form3_24_Example form3_24_Example = new Form3_24_Example();
+            form3_24_Example.Show();
+        }
+
+        private void GenerateDocumentButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
         private void MenuButton_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
-        }
-
-        private void ExampleButton_Click(object sender, RoutedEventArgs e)
-        {
-            Form3_24_Example form3_24_Example = new Form3_24_Example();
-            form3_24_Example.Show();
         }
     }
 }

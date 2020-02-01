@@ -216,9 +216,11 @@
         <TextBox x:Name="textBox52" Grid.Row="15" Grid.Column="5" Style="{StaticResource TextBoxes}" />
         <TextBox x:Name="textBox53" Grid.Row="16" Grid.Column="5" Style="{StaticResource TextBoxes}" />
 
-        <Button x:Name="ExampleButton" Grid.Row="18" Grid.Column="0" Content="Зразок" Style="{StaticResource ExampleButton}" Click="ExampleButton_Click" />
+        <Button x:Name="ExampleButton" Grid.Row="18" Grid.Column="0" Content="Зразок" Style="{StaticResource ExampleButton}" 
+                Click="ExampleButton_Click" />
         <Button x:Name="GenerateDocumentButton" Grid.Row="18" Grid.Column="2" Grid.ColumnSpan="2" 
                 Content="Згенерувати донесення" Style="{StaticResource GenerateDocumentButton}" Click="GenerateDocumentButton_Click" />
-        <Button x:Name="MenuButton" Grid.Row="18" Grid.Column="5" Content="Меню" Style="{StaticResource MenuButton}" Click="MenuButton_Click" />
+        <Button x:Name="MenuButton" Grid.Row="18" Grid.Column="5" Content="Меню" Style="{StaticResource MenuButton}" 
+                Click="MenuButton_Click" />
     </Grid>
 </Window>

@@ -19,6 +19,11 @@ namespace CombatReports.TableForms.TypeB4
             form4_1_Example.Show();
         }
 
+        private void GenerateDocumentButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
         private void MenuButton_Click(object sender, RoutedEventArgs e)
         {
             this.Close();

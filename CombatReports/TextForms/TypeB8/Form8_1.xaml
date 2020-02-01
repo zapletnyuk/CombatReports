@@ -12,7 +12,7 @@
         MinHeight="720"
         MinWidth="1180"
         Background="LightBlue">
-    
+
     <Window.Resources>
         <Style x:Key="Labels">
             <Setter Property="Control.FontFamily" Value="Times New Roman" />
@@ -231,10 +231,12 @@
         <TextBox x:Name="textBox58" Grid.Row="17" Grid.Column="5" Style="{StaticResource TextBoxes}" />
         <TextBox x:Name="textBox59" Grid.Row="18" Grid.Column="5" Style="{StaticResource TextBoxes}" />
         <TextBox x:Name="textBox60" Grid.Row="19" Grid.Column="5" Style="{StaticResource TextBoxes}" />
-        
-        <Button x:Name="ExampleButton" Grid.Row="20" Grid.Column="0" Content="Зразок" Style="{StaticResource ExampleButton}" Click="ExampleButton_Click" />
+
+        <Button x:Name="ExampleButton" Grid.Row="20" Grid.Column="0" Content="Зразок" Style="{StaticResource ExampleButton}" 
+                Click="ExampleButton_Click" />
         <Button x:Name="GenerateDocumentButton" Grid.Row="20" Grid.Column="2" Grid.ColumnSpan="2" 
-                Content="Згенерувати донесення" Style="{StaticResource GenerateDocumentButton}" />
-        <Button x:Name="MenuButton" Grid.Row="20" Grid.Column="5" Content="Меню" Style="{StaticResource MenuButton}" Click="MenuButton_Click" />
+                Content="Згенерувати донесення" Style="{StaticResource GenerateDocumentButton}" Click="GenerateDocumentButton_Click" />
+        <Button x:Name="MenuButton" Grid.Row="20" Grid.Column="5" Content="Меню" Style="{StaticResource MenuButton}" 
+                Click="MenuButton_Click" />
     </Grid>
 </Window>

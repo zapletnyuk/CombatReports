@@ -116,7 +116,7 @@
         <Label Grid.Row="12" Grid.Column="0" Content="Комірка (3; 2)" Style="{StaticResource Labels}" />
         <Label Grid.Row="13" Grid.Column="0" Content="Комірка (3; 3)" Style="{StaticResource Labels}" />
         <Label Grid.Row="14" Grid.Column="0" Content="Комірка (4; 1)" Style="{StaticResource Labels}" />
-        
+
         <Label Grid.Row="0" Grid.Column="2" Content="Комірка (4; 2)" Style="{StaticResource Labels}" />
         <Label Grid.Row="1" Grid.Column="2" Content="Комірка (4; 3)" Style="{StaticResource Labels}" />
         <Label Grid.Row="2" Grid.Column="2" Content="Комірка (5; 1)" Style="{StaticResource Labels}" />
@@ -132,7 +132,7 @@
         <Label Grid.Row="12" Grid.Column="2" Content="Комірка (8; 2)" Style="{StaticResource Labels}" />
         <Label Grid.Row="13" Grid.Column="2" Content="Комірка (8; 3)" Style="{StaticResource Labels}" />
         <Label Grid.Row="14" Grid.Column="2" Content="Комірка (9; 1)" Style="{StaticResource Labels}" />
-        
+
         <Label Grid.Row="0" Grid.Column="4" Content="Комірка (9; 2)" Style="{StaticResource Labels}" />
         <Label Grid.Row="1" Grid.Column="4" Content="Комірка (9; 3)" Style="{StaticResource Labels}" />
         <Label Grid.Row="2" Grid.Column="4" Content="Комірка (10; 1)" Style="{StaticResource Labels}" />
@@ -180,7 +180,7 @@
         <TextBox x:Name="textBox28" Grid.Row="12" Grid.Column="3" Style="{StaticResource TextBoxes}" />
         <TextBox x:Name="textBox29" Grid.Row="13" Grid.Column="3" Style="{StaticResource TextBoxes}" />
         <TextBox x:Name="textBox30" Grid.Row="14" Grid.Column="3" Style="{StaticResource TextBoxes}" />
-        
+
         <TextBox x:Name="textBox31" Grid.Row="0" Grid.Column="5" Style="{StaticResource TextBoxes}" />
         <TextBox x:Name="textBox32" Grid.Row="1" Grid.Column="5" Style="{StaticResource TextBoxes}" />
         <TextBox x:Name="textBox33" Grid.Row="2" Grid.Column="5" Style="{StaticResource TextBoxes}" />
@@ -197,9 +197,11 @@
         <TextBox x:Name="textBox44" Grid.Row="13" Grid.Column="5" Style="{StaticResource TextBoxes}" />
         <TextBox x:Name="textBox45" Grid.Row="14" Grid.Column="5" Style="{StaticResource TextBoxes}" />
 
-        <Button x:Name="ExampleButton" Grid.Row="15" Grid.Column="0" Content="Зразок" Style="{StaticResource ExampleButton}" Click="ExampleButton_Click" />
+        <Button x:Name="ExampleButton" Grid.Row="15" Grid.Column="0" Content="Зразок" Style="{StaticResource ExampleButton}" 
+                Click="ExampleButton_Click" />
         <Button x:Name="GenerateDocumentButton" Grid.Row="15" Grid.Column="2" Grid.ColumnSpan="2" 
                 Content="Згенерувати донесення" Style="{StaticResource GenerateDocumentButton}" Click="GenerateDocumentButton_Click" />
-        <Button x:Name="MenuButton" Grid.Row="15" Grid.Column="5" Content="Меню" Style="{StaticResource MenuButton}" Click="MenuButton_Click" />
+        <Button x:Name="MenuButton" Grid.Row="15" Grid.Column="5" Content="Меню" Style="{StaticResource MenuButton}" 
+                Click="MenuButton_Click" />
     </Grid>
 </Window>
