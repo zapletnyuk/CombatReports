@@ -22,6 +22,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.Office.Interop.Word" Version="15.0.4797.1003" />
+    <PackageReference Include="MicrosoftOfficeCore" Version="15.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Assets\DocumentExamples\3.10.PNG" />
     <Resource Include="Assets\DocumentExamples\3.2.png" />
     <Resource Include="Assets\DocumentExamples\3.24.png" />
