@@ -58,7 +58,7 @@ namespace CombatReports.TextForms.TypeB3
             objWord.Selection.TypeText(textBox8.Text);
             objWord.Selection.TypeText(", наступ їх можливий ");
             objWord.Selection.TypeText(textBox9.Text);
-            objWord.Selection.TypeText(". Праворуч переходить до оборони ");
+            objWord.Selection.TypeText(".\nПраворуч переходить до оборони ");
             objWord.Selection.TypeText(textBox10.Text);
             objWord.Selection.TypeText(" мр сусідньої омбр із завданням обороняти опорний пункт ");
             objWord.Selection.TypeText(textBox11.Text);
