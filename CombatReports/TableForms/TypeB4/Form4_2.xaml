@@ -4,8 +4,221 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Form4_2" Height="450" Width="800">
+        WindowStartupLocation="CenterScreen"
+        Icon="../../Assets/Military-Camouflage.ico"
+        Title="Бойове донесення 4.2" 
+        Height="660" 
+        Width="1090"
+        MinHeight="660"
+        MinWidth="1090"
+        Background="LightBlue">
+
+    <Window.Resources>
+        <Style x:Key="Labels">
+            <Setter Property="Control.FontFamily" Value="Times New Roman" />
+            <Setter Property="Control.Foreground" Value="Black" />
+            <Setter Property="Control.FontSize" Value="15" />
+            <Setter Property="Control.FontWeight" Value="Bold" />
+            <Setter Property="Control.VerticalAlignment" Value="Center" />
+            <Setter Property="Control.HorizontalAlignment" Value="Left" />
+            <Setter Property="Control.Margin" Value="0, 0, 0, 0" />
+        </Style>
+
+        <Style x:Key="TextBoxes">
+            <Setter Property="Control.FontFamily" Value="Times New Roman" />
+            <Setter Property="Control.FontSize" Value="15" />
+            <Setter Property="Control.Width" Value="210" />
+            <Setter Property="Control.Height" Value="20" />
+            <Setter Property="Control.FontWeight" Value="Bold" />
+            <Setter Property="Control.VerticalAlignment" Value="Center" />
+            <Setter Property="Control.HorizontalAlignment" Value="Left" />
+            <Setter Property="Control.Margin" Value="0, 0, 0, 0" />
+        </Style>
+
+        <Style x:Key="ExampleButton">
+            <Setter Property="Control.FontFamily" Value="Times New Roman" />
+            <Setter Property="Control.FontSize" Value="15" />
+            <Setter Property="Control.Width" Value="100" />
+            <Setter Property="Control.Height" Value="25" />
+            <Setter Property="Control.FontWeight" Value="Bold" />
+            <Setter Property="Control.Background" Value="#FFFFFF" />
+            <Setter Property="Control.VerticalAlignment" Value="Center" />
+            <Setter Property="Control.HorizontalAlignment" Value="Left" />
+            <Setter Property="Control.Margin" Value="5, 15, 0, 0" />
+        </Style>
+
+        <Style x:Key="GenerateDocumentButton">
+            <Setter Property="Control.FontFamily" Value="Times New Roman" />
+            <Setter Property="Control.FontSize" Value="15" />
+            <Setter Property="Control.Width" Value="200" />
+            <Setter Property="Control.Height" Value="40" />
+            <Setter Property="Control.FontWeight" Value="Bold" />
+            <Setter Property="Control.Background" Value="#FFFFFF" />
+            <Setter Property="Control.VerticalAlignment" Value="Center" />
+            <Setter Property="Control.HorizontalAlignment" Value="Center" />
+            <Setter Property="Control.Margin" Value="0, 0, 0, 0" />
+        </Style>
+
+        <Style x:Key="MenuButton">
+            <Setter Property="Control.FontFamily" Value="Times New Roman" />
+            <Setter Property="Control.FontSize" Value="15" />
+            <Setter Property="Control.Width" Value="100" />
+            <Setter Property="Control.Height" Value="25" />
+            <Setter Property="Control.FontWeight" Value="Bold" />
+            <Setter Property="Control.Background" Value="#FFFFFF" />
+            <Setter Property="Control.VerticalAlignment" Value="Center" />
+            <Setter Property="Control.HorizontalAlignment" Value="Right" />
+            <Setter Property="Control.Margin" Value="0, 15, 10, 0" />
+        </Style>
+    </Window.Resources>
+
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="100" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="140" />
+            <ColumnDefinition Width="220" />
+            <ColumnDefinition Width="140" />
+            <ColumnDefinition Width="220" />
+            <ColumnDefinition Width="140" />
+            <ColumnDefinition Width="220" />
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0" Content="Час, дата" Style="{StaticResource Labels}" />
+        <Label Grid.Row="1" Grid.Column="0" Content="Час, дата" Style="{StaticResource Labels}" />
+        <Label Grid.Row="2" Grid.Column="0" Content="Дійсне число" Style="{StaticResource Labels}" />
+        <Label Grid.Row="3" Grid.Column="0" Content="Дійсне число" Style="{StaticResource Labels}" />
+        <Label Grid.Row="4" Grid.Column="0" Content="Час, дата" Style="{StaticResource Labels}" />
+        <Label Grid.Row="5" Grid.Column="0" Content="Комірка (1; 1)" Style="{StaticResource Labels}" />
+        <Label Grid.Row="6" Grid.Column="0" Content="Комірка (1; 2)" Style="{StaticResource Labels}" />
+        <Label Grid.Row="7" Grid.Column="0" Content="Комірка (1; 3)" Style="{StaticResource Labels}" />
+        <Label Grid.Row="8" Grid.Column="0" Content="Комірка (2; 1)" Style="{StaticResource Labels}" />
+        <Label Grid.Row="9" Grid.Column="0" Content="Комірка (2; 2)" Style="{StaticResource Labels}" />
+        <Label Grid.Row="10" Grid.Column="0" Content="Комірка (2; 3)" Style="{StaticResource Labels}" />
+        <Label Grid.Row="11" Grid.Column="0" Content="Комірка (3; 1)" Style="{StaticResource Labels}" />
+        <Label Grid.Row="12" Grid.Column="0" Content="Комірка (3; 2)" Style="{StaticResource Labels}" />
+        <Label Grid.Row="13" Grid.Column="0" Content="Комірка (3; 3)" Style="{StaticResource Labels}" />
+        <Label Grid.Row="14" Grid.Column="0" Content="Комірка (4; 1)" Style="{StaticResource Labels}" />
+        <Label Grid.Row="15" Grid.Column="0" Content="Комірка (4; 2)" Style="{StaticResource Labels}" />
+        <Label Grid.Row="16" Grid.Column="0" Content="Комірка (4; 3)" Style="{StaticResource Labels}" />
+        <Label Grid.Row="17" Grid.Column="0" Content="Комірка (5; 1)" Style="{StaticResource Labels}" />
+
+        <Label Grid.Row="0" Grid.Column="2" Content="Комірка (5; 2)" Style="{StaticResource Labels}" />
+        <Label Grid.Row="1" Grid.Column="2" Content="Комірка (5; 3)" Style="{StaticResource Labels}" />
+        <Label Grid.Row="2" Grid.Column="2" Content="Комірка (6; 1)" Style="{StaticResource Labels}" />
+        <Label Grid.Row="3" Grid.Column="2" Content="Комірка (6; 2)" Style="{StaticResource Labels}" />
+        <Label Grid.Row="4" Grid.Column="2" Content="Комірка (6; 3)" Style="{StaticResource Labels}" />
+        <Label Grid.Row="5" Grid.Column="2" Content="Комірка (7; 1)" Style="{StaticResource Labels}" />
+        <Label Grid.Row="6" Grid.Column="2" Content="Комірка (7; 2)" Style="{StaticResource Labels}" />
+        <Label Grid.Row="7" Grid.Column="2" Content="Комірка (7; 3)" Style="{StaticResource Labels}" />
+        <Label Grid.Row="8" Grid.Column="2" Content="Комірка (8; 1)" Style="{StaticResource Labels}" />
+        <Label Grid.Row="9" Grid.Column="2" Content="Комірка (8; 2)" Style="{StaticResource Labels}" />
+        <Label Grid.Row="10" Grid.Column="2" Content="Комірка (8; 3)" Style="{StaticResource Labels}" />
+        <Label Grid.Row="11" Grid.Column="2" Content="Комірка (9; 1)" Style="{StaticResource Labels}" />
+        <Label Grid.Row="12" Grid.Column="2" Content="Комірка (9; 2)" Style="{StaticResource Labels}" />
+        <Label Grid.Row="13" Grid.Column="2" Content="Комірка (9; 3)" Style="{StaticResource Labels}" />
+        <Label Grid.Row="14" Grid.Column="2" Content="Комірка (10; 1)" Style="{StaticResource Labels}" />
+        <Label Grid.Row="15" Grid.Column="2" Content="Комірка (10; 2)" Style="{StaticResource Labels}" />
+        <Label Grid.Row="16" Grid.Column="2" Content="Комірка (10; 3)" Style="{StaticResource Labels}" />
+        <Label Grid.Row="17" Grid.Column="2" Content="Комірка (11; 1)" Style="{StaticResource Labels}" />
+
+        <Label Grid.Row="0" Grid.Column="4" Content="Комірка (11; 2)" Style="{StaticResource Labels}" />
+        <Label Grid.Row="1" Grid.Column="4" Content="Комірка (11; 3)" Style="{StaticResource Labels}" />
+        <Label Grid.Row="2" Grid.Column="4" Content="Комірка (12; 1)" Style="{StaticResource Labels}" />
+        <Label Grid.Row="3" Grid.Column="4" Content="Комірка (12; 2)" Style="{StaticResource Labels}" />
+        <Label Grid.Row="4" Grid.Column="4" Content="Комірка (12; 3)" Style="{StaticResource Labels}" />
+        <Label Grid.Row="5" Grid.Column="4" Content="Комірка (13; 1)" Style="{StaticResource Labels}" />
+        <Label Grid.Row="6" Grid.Column="4" Content="Комірка (13; 2)" Style="{StaticResource Labels}" />
+        <Label Grid.Row="7" Grid.Column="4" Content="Комірка (13; 3)" Style="{StaticResource Labels}" />
+        <Label Grid.Row="8" Grid.Column="4" Content="Комірка (14; 1)" Style="{StaticResource Labels}" />
+        <Label Grid.Row="9" Grid.Column="4" Content="Комірка (14; 2)" Style="{StaticResource Labels}" />
+        <Label Grid.Row="10" Grid.Column="4" Content="Комірка (14; 3)" Style="{StaticResource Labels}" />
+        <Label Grid.Row="11" Grid.Column="4" Content="Комірка (15; 1)" Style="{StaticResource Labels}" />
+        <Label Grid.Row="12" Grid.Column="4" Content="Комірка (15; 2)" Style="{StaticResource Labels}" />
+        <Label Grid.Row="13" Grid.Column="4" Content="Комірка (15; 3)" Style="{StaticResource Labels}" />
+        <Label Grid.Row="14" Grid.Column="4" Content="Комірка (16; 1)" Style="{StaticResource Labels}" />
+        <Label Grid.Row="15" Grid.Column="4" Content="Комірка (16; 2)" Style="{StaticResource Labels}" />
+        <Label Grid.Row="16" Grid.Column="4" Content="Комірка (16; 3)" Style="{StaticResource Labels}" />
+
+        <TextBox x:Name="textBox1" Grid.Row="0" Grid.Column="1" Style="{StaticResource TextBoxes}" />
+        <TextBox x:Name="textBox2" Grid.Row="1" Grid.Column="1" Style="{StaticResource TextBoxes}" />
+        <TextBox x:Name="textBox3" Grid.Row="2" Grid.Column="1" Style="{StaticResource TextBoxes}" />
+        <TextBox x:Name="textBox4" Grid.Row="3" Grid.Column="1" Style="{StaticResource TextBoxes}" />
+        <TextBox x:Name="textBox5" Grid.Row="4" Grid.Column="1" Style="{StaticResource TextBoxes}" />
+        <TextBox x:Name="textBox6" Grid.Row="5" Grid.Column="1" Style="{StaticResource TextBoxes}" />
+        <TextBox x:Name="textBox7" Grid.Row="6" Grid.Column="1" Style="{StaticResource TextBoxes}" />
+        <TextBox x:Name="textBox8" Grid.Row="7" Grid.Column="1" Style="{StaticResource TextBoxes}" />
+        <TextBox x:Name="textBox9" Grid.Row="8" Grid.Column="1" Style="{StaticResource TextBoxes}" />
+        <TextBox x:Name="textBox10" Grid.Row="9" Grid.Column="1" Style="{StaticResource TextBoxes}" />
+        <TextBox x:Name="textBox11" Grid.Row="10" Grid.Column="1" Style="{StaticResource TextBoxes}" />
+        <TextBox x:Name="textBox12" Grid.Row="11" Grid.Column="1" Style="{StaticResource TextBoxes}" />
+        <TextBox x:Name="textBox13" Grid.Row="12" Grid.Column="1" Style="{StaticResource TextBoxes}" />
+        <TextBox x:Name="textBox14" Grid.Row="13" Grid.Column="1" Style="{StaticResource TextBoxes}" />
+        <TextBox x:Name="textBox15" Grid.Row="14" Grid.Column="1" Style="{StaticResource TextBoxes}" />
+        <TextBox x:Name="textBox16" Grid.Row="15" Grid.Column="1" Style="{StaticResource TextBoxes}" />
+        <TextBox x:Name="textBox17" Grid.Row="16" Grid.Column="1" Style="{StaticResource TextBoxes}" />
+        <TextBox x:Name="textBox18" Grid.Row="17" Grid.Column="1" Style="{StaticResource TextBoxes}" />
+
+        <TextBox x:Name="textBox19" Grid.Row="0" Grid.Column="3" Style="{StaticResource TextBoxes}" />
+        <TextBox x:Name="textBox20" Grid.Row="1" Grid.Column="3" Style="{StaticResource TextBoxes}" />
+        <TextBox x:Name="textBox21" Grid.Row="2" Grid.Column="3" Style="{StaticResource TextBoxes}" />
+        <TextBox x:Name="textBox22" Grid.Row="3" Grid.Column="3" Style="{StaticResource TextBoxes}" />
+        <TextBox x:Name="textBox23" Grid.Row="4" Grid.Column="3" Style="{StaticResource TextBoxes}" />
+        <TextBox x:Name="textBox24" Grid.Row="5" Grid.Column="3" Style="{StaticResource TextBoxes}" />
+        <TextBox x:Name="textBox25" Grid.Row="6" Grid.Column="3" Style="{StaticResource TextBoxes}" />
+        <TextBox x:Name="textBox26" Grid.Row="7" Grid.Column="3" Style="{StaticResource TextBoxes}" />
+        <TextBox x:Name="textBox27" Grid.Row="8" Grid.Column="3" Style="{StaticResource TextBoxes}" />
+        <TextBox x:Name="textBox28" Grid.Row="9" Grid.Column="3" Style="{StaticResource TextBoxes}" />
+        <TextBox x:Name="textBox29" Grid.Row="10" Grid.Column="3" Style="{StaticResource TextBoxes}" />
+        <TextBox x:Name="textBox30" Grid.Row="11" Grid.Column="3" Style="{StaticResource TextBoxes}" />
+        <TextBox x:Name="textBox31" Grid.Row="12" Grid.Column="3" Style="{StaticResource TextBoxes}" />
+        <TextBox x:Name="textBox32" Grid.Row="13" Grid.Column="3" Style="{StaticResource TextBoxes}" />
+        <TextBox x:Name="textBox33" Grid.Row="14" Grid.Column="3" Style="{StaticResource TextBoxes}" />
+        <TextBox x:Name="textBox34" Grid.Row="15" Grid.Column="3" Style="{StaticResource TextBoxes}" />
+        <TextBox x:Name="textBox35" Grid.Row="16" Grid.Column="3" Style="{StaticResource TextBoxes}" />
+        <TextBox x:Name="textBox36" Grid.Row="17" Grid.Column="3" Style="{StaticResource TextBoxes}" />
+
+        <TextBox x:Name="textBox37" Grid.Row="0" Grid.Column="5" Style="{StaticResource TextBoxes}" />
+        <TextBox x:Name="textBox38" Grid.Row="1" Grid.Column="5" Style="{StaticResource TextBoxes}" />
+        <TextBox x:Name="textBox39" Grid.Row="2" Grid.Column="5" Style="{StaticResource TextBoxes}" />
+        <TextBox x:Name="textBox40" Grid.Row="3" Grid.Column="5" Style="{StaticResource TextBoxes}" />
+        <TextBox x:Name="textBox41" Grid.Row="4" Grid.Column="5" Style="{StaticResource TextBoxes}" />
+        <TextBox x:Name="textBox42" Grid.Row="5" Grid.Column="5" Style="{StaticResource TextBoxes}" />
+        <TextBox x:Name="textBox43" Grid.Row="6" Grid.Column="5" Style="{StaticResource TextBoxes}" />
+        <TextBox x:Name="textBox44" Grid.Row="7" Grid.Column="5" Style="{StaticResource TextBoxes}" />
+        <TextBox x:Name="textBox45" Grid.Row="8" Grid.Column="5" Style="{StaticResource TextBoxes}" />
+        <TextBox x:Name="textBox46" Grid.Row="9" Grid.Column="5" Style="{StaticResource TextBoxes}" />
+        <TextBox x:Name="textBox47" Grid.Row="10" Grid.Column="5" Style="{StaticResource TextBoxes}" />
+        <TextBox x:Name="textBox48" Grid.Row="11" Grid.Column="5" Style="{StaticResource TextBoxes}" />
+        <TextBox x:Name="textBox49" Grid.Row="12" Grid.Column="5" Style="{StaticResource TextBoxes}" />
+        <TextBox x:Name="textBox50" Grid.Row="13" Grid.Column="5" Style="{StaticResource TextBoxes}" />
+        <TextBox x:Name="textBox51" Grid.Row="14" Grid.Column="5" Style="{StaticResource TextBoxes}" />
+        <TextBox x:Name="textBox52" Grid.Row="15" Grid.Column="5" Style="{StaticResource TextBoxes}" />
+        <TextBox x:Name="textBox53" Grid.Row="16" Grid.Column="5" Style="{StaticResource TextBoxes}" />
+
+        <Button x:Name="ExampleButton" Grid.Row="18" Grid.Column="0" Content="Зразок" Style="{StaticResource ExampleButton}" Click="ExampleButton_Click" />
+        <Button x:Name="GenerateDocumentButton" Grid.Row="18" Grid.Column="2" Grid.ColumnSpan="2" 
+                Content="Згенерувати донесення" Style="{StaticResource GenerateDocumentButton}" Click="GenerateDocumentButton_Click" />
+        <Button x:Name="MenuButton" Grid.Row="18" Grid.Column="5" Content="Меню" Style="{StaticResource MenuButton}" Click="MenuButton_Click" />
     </Grid>
 </Window>

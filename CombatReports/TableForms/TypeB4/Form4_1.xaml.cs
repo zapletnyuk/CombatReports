@@ -1,14 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using CombatReports.DocumentExamplesForms.TableExamples.TypeB4;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace CombatReports.TableForms.TypeB4
 {
@@ -20,6 +11,19 @@ namespace CombatReports.TableForms.TypeB4
         public Form4_1()
         {
             InitializeComponent();
+        }
+
+        private void ExampleButton_Click(object sender, RoutedEventArgs e)
+        {
+            Form4_1_Example form4_1_Example = new Form4_1_Example();
+            form4_1_Example.Show();
+        }
+
+        private void MenuButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
         }
     }
 }
