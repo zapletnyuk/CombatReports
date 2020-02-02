@@ -1,4 +1,9 @@
-﻿using CombatReports.Models;
+﻿using CombatReports.BLL.Services;
+using CombatReports.BLL.Services.Interfaces;
+using CombatReports.DAL.Models;
+using CombatReports.DAL.Repositories.ImplementedRepositories;
+using CombatReports.DAL.Repositories.InterfacesRepositories;
+using CombatReports.DAL.UnitOfWork;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -36,11 +41,17 @@ namespace CombatReports
 
         private void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<OrdersDBContext>
+            services.AddDbContext<OrdersDbContext>
                 (options => options.UseSqlServer(
                     Configuration.GetConnectionString("SqlConnection")));
 
-            services.AddTransient(typeof(MainWindow));
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+            services.AddScoped<IOrderService, OrderService>();
+
+            services.AddScoped<IOrderRepository, OrderRepository>();
+
+            services.AddScoped(typeof(MainWindow));
         }
     }
 }

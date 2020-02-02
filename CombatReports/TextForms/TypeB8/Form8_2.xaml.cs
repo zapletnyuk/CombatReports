@@ -1,7 +1,8 @@
 ﻿using CombatReports.DocumentExamplesForms.TextExamples.TypeB8;
-using CombatReports.Models;
+using CombatReports.DAL.Models;
 using System.Windows;
 using Word = Microsoft.Office.Interop.Word;
+using CombatReports.BLL.Services.Interfaces;
 
 namespace CombatReports.TextForms.TypeB8
 {
@@ -10,11 +11,11 @@ namespace CombatReports.TextForms.TypeB8
     /// </summary>
     public partial class Form8_2 : Window
     {
-        private readonly OrdersDBContext ordersDBContext;
-        public Form8_2(OrdersDBContext ordersDBContext)
+        private readonly IOrderService orderService;
+        public Form8_2(IOrderService orderService)
         {
             InitializeComponent();
-            this.ordersDBContext = ordersDBContext;
+            this.orderService = orderService;
         }
 
         private void ExampleButton_Click(object sender, RoutedEventArgs e)
@@ -159,7 +160,7 @@ namespace CombatReports.TextForms.TypeB8
         private void MenuButton_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
-            MainWindow mainWindow = new MainWindow(ordersDBContext);
+            MainWindow mainWindow = new MainWindow(orderService);
             mainWindow.Show();
         }
     }

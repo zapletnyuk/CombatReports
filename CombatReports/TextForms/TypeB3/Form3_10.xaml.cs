@@ -1,5 +1,5 @@
-﻿using CombatReports.DocumentExamplesForms.TextExamples.TypeB3;
-using CombatReports.Models;
+﻿using CombatReports.BLL.Services.Interfaces;
+using CombatReports.DocumentExamplesForms.TextExamples.TypeB3;
 using System.Windows;
 using Word = Microsoft.Office.Interop.Word;
 
@@ -10,11 +10,11 @@ namespace CombatReports.TextForms.TypeB3
     /// </summary>
     public partial class Form3_10 : Window
     {
-        private readonly OrdersDBContext ordersDBContext;
-        public Form3_10(OrdersDBContext ordersDBContext)
+        private readonly IOrderService orderService;
+        public Form3_10(IOrderService orderService)
         {
             InitializeComponent();
-            this.ordersDBContext = ordersDBContext;
+            this.orderService = orderService;
         }
 
         private void ExampleButton_Click(object sender, RoutedEventArgs e)
@@ -87,7 +87,7 @@ namespace CombatReports.TextForms.TypeB3
         private void MenuButton_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
-            MainWindow mainWindow = new MainWindow(ordersDBContext);
+            MainWindow mainWindow = new MainWindow(orderService);
             mainWindow.Show();
         }
     }

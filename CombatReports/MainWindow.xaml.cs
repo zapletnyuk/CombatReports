@@ -1,4 +1,4 @@
-﻿using CombatReports.Models;
+﻿using CombatReports.BLL.Services.Interfaces;
 using CombatReports.TableForms.TypeB3;
 using CombatReports.TableForms.TypeB4;
 using CombatReports.TextForms.TypeB3;
@@ -14,11 +14,11 @@ namespace CombatReports
     /// </summary>
     public partial class MainWindow : Window
     {
-        private readonly OrdersDBContext ordersDBContext;
-        public MainWindow(OrdersDBContext ordersDBContext)
+        private readonly IOrderService orderService;
+        public MainWindow(IOrderService orderService)
         {
             InitializeComponent();
-            this.ordersDBContext = ordersDBContext;
+            this.orderService = orderService;
         }
 
         private void TextDocumentsTypeB3ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -27,12 +27,12 @@ namespace CombatReports
             {
                 case 0:
                     this.Hide();
-                    Form3_10 form3_10 = new Form3_10(ordersDBContext);
+                    Form3_10 form3_10 = new Form3_10(orderService);
                     form3_10.Show();
                     return;
                 case 1:
                     this.Hide();
-                    Form3_24 form3_24 = new Form3_24(ordersDBContext);
+                    Form3_24 form3_24 = new Form3_24(orderService);
                     form3_24.Show();
                     return;
             }
@@ -44,7 +44,7 @@ namespace CombatReports
             {
                 case 0:
                     this.Hide();
-                    Form4_6 form4_6 = new Form4_6(ordersDBContext);
+                    Form4_6 form4_6 = new Form4_6(orderService);
                     form4_6.Show();
                     break;
             }
@@ -56,12 +56,12 @@ namespace CombatReports
             {
                 case 0:
                     this.Hide();
-                    Form8_1 form8_1 = new Form8_1(ordersDBContext);
+                    Form8_1 form8_1 = new Form8_1(orderService);
                     form8_1.Show();
                     break;
                 case 1:
                     this.Hide();
-                    Form8_2 form8_2 = new Form8_2(ordersDBContext);
+                    Form8_2 form8_2 = new Form8_2(orderService);
                     form8_2.Show();
                     break;
             }
@@ -73,17 +73,17 @@ namespace CombatReports
             {
                 case 0:
                     this.Hide();
-                    Form3_2 form3_2 = new Form3_2(ordersDBContext);
+                    Form3_2 form3_2 = new Form3_2(orderService);
                     form3_2.Show();
                     break;
                 case 1:
                     this.Hide();
-                    Form3_3 form3_3 = new Form3_3(ordersDBContext);
+                    Form3_3 form3_3 = new Form3_3(orderService);
                     form3_3.Show();
                     break;
                 case 2:
                     this.Hide();
-                    Form3_4 form3_4 = new Form3_4(ordersDBContext);
+                    Form3_4 form3_4 = new Form3_4(orderService);
                     form3_4.Show();
                     break;
             }
@@ -95,12 +95,12 @@ namespace CombatReports
             {
                 case 0:
                     this.Hide();
-                    Form4_1 form4_1 = new Form4_1(ordersDBContext);
+                    Form4_1 form4_1 = new Form4_1(orderService);
                     form4_1.Show();
                     break;
                 case 1:
                     this.Hide();
-                    Form4_2 form4_2 = new Form4_2(ordersDBContext);
+                    Form4_2 form4_2 = new Form4_2(orderService);
                     form4_2.Show();
                     break;
             }

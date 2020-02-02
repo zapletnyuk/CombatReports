@@ -1,0 +1,22 @@
+﻿using System.IO;
+
+namespace CombatReports.Helpers
+{
+    public static class GeneratedFileData
+    {
+        public static (string shortFileName, byte[] fileData) GetFileInfo(string path)
+        {
+            // Назва файлу
+            string shortFileName = path.Substring(path.LastIndexOf('\\') + 1);
+            // Масив для збереження бінарних даних файла
+            byte[] fileData;
+            using (FileStream fs = new FileStream(path, FileMode.Open))
+            {
+                fileData = new byte[fs.Length];
+                fs.Read(fileData, 0, fileData.Length);
+            }
+            var fileInfo = (shortFileName, fileData);
+            return fileInfo;
+        }
+    }
+}

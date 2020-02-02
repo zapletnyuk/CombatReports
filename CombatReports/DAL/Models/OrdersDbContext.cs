@@ -1,10 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace CombatReports.Models
+namespace CombatReports.DAL.Models
 {
-    public partial class OrdersDBContext : DbContext
+    public partial class OrdersDbContext : DbContext
     {
-        public OrdersDBContext(DbContextOptions<OrdersDBContext> options)
+        public OrdersDbContext(DbContextOptions<OrdersDbContext> options)
             : base(options)
         {
         }

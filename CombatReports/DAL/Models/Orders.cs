@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using CombatReports.DAL.Models.Abstractions;
 
-namespace CombatReports.Models
+namespace CombatReports.DAL.Models
 {
-    public partial class Orders
+    public partial class Orders : IEntity
     {
         public int Id { get; set; }
         public string FileName { get; set; }
