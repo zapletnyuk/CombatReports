@@ -1,4 +1,5 @@
 ﻿using CombatReports.DocumentExamplesForms.TableExamples.TypeB3;
+using CombatReports.Models;
 using System.Windows;
 using Word = Microsoft.Office.Interop.Word;
 
@@ -9,9 +10,11 @@ namespace CombatReports.TableForms.TypeB3
     /// </summary>
     public partial class Form3_3 : Window
     {
-        public Form3_3()
+        private readonly OrdersDBContext ordersDBContext;
+        public Form3_3(OrdersDBContext ordersDBContext)
         {
             InitializeComponent();
+            this.ordersDBContext = ordersDBContext;
         }
 
         private void ExampleButton_Click(object sender, RoutedEventArgs e)
@@ -24,8 +27,10 @@ namespace CombatReports.TableForms.TypeB3
         {
             object objMissing = System.Reflection.Missing.Value;
             object objEndOfDocFlag = "\\endofdoc";
-            Word.Application objWord = new Word.Application();
-            objWord.Visible = true;
+            Word.Application objWord = new Word.Application
+            {
+                Visible = true
+            };
             Word.Document objDoc = objWord.Documents.Add(ref objMissing, ref objMissing, ref objMissing, ref objMissing);
 
             // Перший параграф, форматування
@@ -236,7 +241,7 @@ namespace CombatReports.TableForms.TypeB3
         private void MenuButton_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
-            MainWindow mainWindow = new MainWindow();
+            MainWindow mainWindow = new MainWindow(ordersDBContext);
             mainWindow.Show();
         }
     }

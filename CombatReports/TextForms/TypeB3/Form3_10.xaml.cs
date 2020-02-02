@@ -1,4 +1,5 @@
 ﻿using CombatReports.DocumentExamplesForms.TextExamples.TypeB3;
+using CombatReports.Models;
 using System.Windows;
 using Word = Microsoft.Office.Interop.Word;
 
@@ -9,9 +10,11 @@ namespace CombatReports.TextForms.TypeB3
     /// </summary>
     public partial class Form3_10 : Window
     {
-        public Form3_10()
+        private readonly OrdersDBContext ordersDBContext;
+        public Form3_10(OrdersDBContext ordersDBContext)
         {
             InitializeComponent();
+            this.ordersDBContext = ordersDBContext;
         }
 
         private void ExampleButton_Click(object sender, RoutedEventArgs e)
@@ -22,8 +25,10 @@ namespace CombatReports.TextForms.TypeB3
 
         private void GenerateDocumentButton_Click(object sender, RoutedEventArgs e)
         {
-            Word.Application objWord = new Word.Application();
-            objWord.Visible = true;
+            Word.Application objWord = new Word.Application
+            {
+                Visible = true
+            };
             Word.Document objDoc;
             object objMissing = System.Reflection.Missing.Value;
             objDoc = objWord.Documents.Add(ref objMissing, ref objMissing, ref objMissing, ref objMissing);
@@ -82,7 +87,7 @@ namespace CombatReports.TextForms.TypeB3
         private void MenuButton_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
-            MainWindow mainWindow = new MainWindow();
+            MainWindow mainWindow = new MainWindow(ordersDBContext);
             mainWindow.Show();
         }
     }

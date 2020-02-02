@@ -1,4 +1,5 @@
 ﻿using CombatReports.DocumentExamplesForms.TableExamples.TypeB4;
+using CombatReports.Models;
 using System.Windows;
 using Word = Microsoft.Office.Interop.Word;
 
@@ -9,9 +10,11 @@ namespace CombatReports.TableForms.TypeB4
     /// </summary>
     public partial class Form4_1 : Window
     {
-        public Form4_1()
+        private readonly OrdersDBContext ordersDBContext;
+        public Form4_1(OrdersDBContext ordersDBContext)
         {
             InitializeComponent();
+            this.ordersDBContext = ordersDBContext;
         }
 
         private void ExampleButton_Click(object sender, RoutedEventArgs e)
@@ -225,7 +228,7 @@ namespace CombatReports.TableForms.TypeB4
         private void MenuButton_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
-            MainWindow mainWindow = new MainWindow();
+            MainWindow mainWindow = new MainWindow(ordersDBContext);
             mainWindow.Show();
         }
     }
