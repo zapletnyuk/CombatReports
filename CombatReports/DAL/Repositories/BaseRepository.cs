@@ -23,7 +23,7 @@ namespace CombatReports.DAL.Repositories
             return Entities.FirstOrDefault(t => t.Id == id);
         }
 
-        public virtual IEnumerable<TEntity> GetAll()
+        public virtual List<TEntity> GetAll()
         {
             return Entities.ToList();
         }

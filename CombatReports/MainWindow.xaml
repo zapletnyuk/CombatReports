@@ -135,6 +135,6 @@
             </TextBlock.Style>
         </TextBlock>
 
-        <Button Grid.Row="5" Grid.Column="2" Content="Знайти" Style="{StaticResource SearchButton}" />
+        <Button x:Name="SearchButton" Grid.Row="5" Grid.Column="2" Content="Знайти" Style="{StaticResource SearchButton}" Click="SearchButton_Click" />
     </Grid>
 </Window>

@@ -1,9 +1,15 @@
 ﻿using CombatReports.BLL.Services.Interfaces;
+using CombatReports.DAL.Models;
 using CombatReports.TableForms.TypeB3;
 using CombatReports.TableForms.TypeB4;
 using CombatReports.TextForms.TypeB3;
 using CombatReports.TextForms.TypeB4;
 using CombatReports.TextForms.TypeB8;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Security.Cryptography;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -103,6 +109,61 @@ namespace CombatReports
                     Form4_2 form4_2 = new Form4_2(orderService);
                     form4_2.Show();
                     break;
+            }
+        }
+
+        private void SearchButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string nameOfFile = SearchReportTextBox.Text;
+                List<Orders> orders = new List<Orders>();
+                orders = orderService.GetOrders();
+                bool flag = true;
+                if (orders.Count > 0)
+                {
+                    foreach (Orders o in orders)
+                    {
+                        if (o.FileName == nameOfFile)
+                        {
+                            o.FileData = Decrypt(o.FileData);
+                            using (FileStream fs = new FileStream(@"C:\Users\nizap\Documents\" + o.FileName, FileMode.OpenOrCreate))
+                            {
+                                fs.Write(o.FileData, 0, o.FileData.Length);
+                                MessageBox.Show($"Військове бойове донесення {o.FileName} збережено.");
+                                flag = false;
+                            }
+                        }
+                    }
+                    if (flag)
+                    {
+                        MessageBox.Show("Військове бойове донесення не знайдено.");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("База даних не містить попередньо згенерованих військових бойових донесень!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        public static byte[] Decrypt(byte[] data)
+        {
+            string hash = "myHash";
+            using (MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider())
+            {
+                byte[] keys = md5.ComputeHash(UTF8Encoding.UTF8.GetBytes(hash));
+                using (TripleDESCryptoServiceProvider tripDes = new TripleDESCryptoServiceProvider()
+                    { Key = keys, Mode = CipherMode.ECB, Padding = PaddingMode.PKCS7 })
+                {
+                    ICryptoTransform transform = tripDes.CreateDecryptor();
+                    byte[] results = transform.TransformFinalBlock(data, 0, data.Length);
+                    return results;
+                }
             }
         }
     }

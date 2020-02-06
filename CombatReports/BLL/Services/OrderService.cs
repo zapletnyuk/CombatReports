@@ -2,6 +2,7 @@
 using CombatReports.DAL.Models;
 using CombatReports.DAL.UnitOfWork;
 using CombatReports.Helpers;
+using System.Collections.Generic;
 
 namespace CombatReports.BLL.Services
 {
@@ -12,6 +13,12 @@ namespace CombatReports.BLL.Services
         {
             this.database = database;
         }
+
+        public List<Orders> GetOrders()
+        {
+            return database.OrderRepository.GetAll();
+        }
+
         public Orders AddOrder(string path)
         {
             var (shortFileName, fileData) = GeneratedFileData.GetFileInfo(path);
