@@ -48,8 +48,12 @@ namespace CombatReports
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             services.AddScoped<IOrderService, OrderService>();
+            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IHashService, HashService>();
 
             services.AddScoped<IOrderRepository, OrderRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IHashRepository, HashRepository>();
 
             services.AddScoped(typeof(MainWindow));
         }

@@ -2,5 +2,5 @@
 
 namespace CombatReports.DAL.Repositories.InterfacesRepositories
 {
-    public interface IOrderRepository : IBaseRepository<Orders> { }
+    public interface IHashRepository : IBaseRepository<Hash> { }
 }
