@@ -1,5 +1,6 @@
 ﻿using CombatReports.BLL.Services.Interfaces;
 using CombatReports.DAL.Models;
+using CombatReports.ManagingWindows;
 using CombatReports.TableForms.TypeB3;
 using CombatReports.TableForms.TypeB4;
 using CombatReports.TextForms.TypeB3;
@@ -21,10 +22,12 @@ namespace CombatReports
     public partial class MainWindow : Window
     {
         private readonly IOrderService orderService;
-        public MainWindow(IOrderService orderService)
+        private readonly IHashService hashService;
+        public MainWindow(IOrderService orderService, IHashService hashService)
         {
             InitializeComponent();
             this.orderService = orderService;
+            this.hashService = hashService;
         }
 
         private void TextDocumentsTypeB3ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -33,12 +36,12 @@ namespace CombatReports
             {
                 case 0:
                     this.Hide();
-                    Form3_10 form3_10 = new Form3_10(orderService);
+                    Form3_10 form3_10 = new Form3_10(orderService, hashService);
                     form3_10.Show();
                     return;
                 case 1:
                     this.Hide();
-                    Form3_24 form3_24 = new Form3_24(orderService);
+                    Form3_24 form3_24 = new Form3_24(orderService, hashService);
                     form3_24.Show();
                     return;
             }
@@ -50,7 +53,7 @@ namespace CombatReports
             {
                 case 0:
                     this.Hide();
-                    Form4_6 form4_6 = new Form4_6(orderService);
+                    Form4_6 form4_6 = new Form4_6(orderService, hashService);
                     form4_6.Show();
                     break;
             }
@@ -62,12 +65,12 @@ namespace CombatReports
             {
                 case 0:
                     this.Hide();
-                    Form8_1 form8_1 = new Form8_1(orderService);
+                    Form8_1 form8_1 = new Form8_1(orderService, hashService);
                     form8_1.Show();
                     break;
                 case 1:
                     this.Hide();
-                    Form8_2 form8_2 = new Form8_2(orderService);
+                    Form8_2 form8_2 = new Form8_2(orderService, hashService);
                     form8_2.Show();
                     break;
             }
@@ -79,17 +82,17 @@ namespace CombatReports
             {
                 case 0:
                     this.Hide();
-                    Form3_2 form3_2 = new Form3_2(orderService);
+                    Form3_2 form3_2 = new Form3_2(orderService, hashService);
                     form3_2.Show();
                     break;
                 case 1:
                     this.Hide();
-                    Form3_3 form3_3 = new Form3_3(orderService);
+                    Form3_3 form3_3 = new Form3_3(orderService, hashService);
                     form3_3.Show();
                     break;
                 case 2:
                     this.Hide();
-                    Form3_4 form3_4 = new Form3_4(orderService);
+                    Form3_4 form3_4 = new Form3_4(orderService, hashService);
                     form3_4.Show();
                     break;
             }
@@ -101,12 +104,12 @@ namespace CombatReports
             {
                 case 0:
                     this.Hide();
-                    Form4_1 form4_1 = new Form4_1(orderService);
+                    Form4_1 form4_1 = new Form4_1(orderService, hashService);
                     form4_1.Show();
                     break;
                 case 1:
                     this.Hide();
-                    Form4_2 form4_2 = new Form4_2(orderService);
+                    Form4_2 form4_2 = new Form4_2(orderService, hashService);
                     form4_2.Show();
                     break;
             }
@@ -130,24 +133,28 @@ namespace CombatReports
                             using (FileStream fs = new FileStream(@"C:\Users\nizap\Documents\" + o.FileName, FileMode.OpenOrCreate))
                             {
                                 fs.Write(o.FileData, 0, o.FileData.Length);
-                                MessageBox.Show($"Військове бойове донесення {o.FileName} збережено.");
+                                CustomMessageBox messageBox = new CustomMessageBox($"Військове бойове донесення {o.FileName} збережено.");
+                                messageBox.ShowDialog();
                                 flag = false;
                             }
                         }
                     }
                     if (flag)
                     {
-                        MessageBox.Show("Військове бойове донесення не знайдено.");
+                        CustomMessageBox messageBox = new CustomMessageBox("Військове бойове донесення не знайдено.");
+                        messageBox.ShowDialog();
                     }
                 }
                 else
                 {
-                    MessageBox.Show("База даних не містить попередньо згенерованих військових бойових донесень!");
+                    CustomMessageBox messageBox = new CustomMessageBox("База даних не містить попередньо згенерованих військових бойових донесень!");
+                    messageBox.ShowDialog();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                CustomMessageBox messageBox = new CustomMessageBox(ex.Message);
+                messageBox.ShowDialog();
             }
         }
 

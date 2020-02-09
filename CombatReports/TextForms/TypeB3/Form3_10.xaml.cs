@@ -11,10 +11,12 @@ namespace CombatReports.TextForms.TypeB3
     public partial class Form3_10 : Window
     {
         private readonly IOrderService orderService;
-        public Form3_10(IOrderService orderService)
+        private readonly IHashService hashService;
+        public Form3_10(IOrderService orderService, IHashService hashService)
         {
             InitializeComponent();
             this.orderService = orderService;
+            this.hashService = hashService;
         }
 
         private void ExampleButton_Click(object sender, RoutedEventArgs e)
@@ -87,7 +89,7 @@ namespace CombatReports.TextForms.TypeB3
         private void MenuButton_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
-            MainWindow mainWindow = new MainWindow(orderService);
+            MainWindow mainWindow = new MainWindow(orderService, hashService);
             mainWindow.Show();
         }
     }

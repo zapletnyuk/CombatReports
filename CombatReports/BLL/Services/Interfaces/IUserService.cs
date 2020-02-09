@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace CombatReports.BLL.Services.Interfaces
 {
-    interface IUserService
+    public interface IUserService
     {
         List<Users> GetUsers();
     }

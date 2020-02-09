@@ -19,9 +19,9 @@ namespace CombatReports.BLL.Services
             return database.OrderRepository.GetAll();
         }
 
-        public Orders AddOrder(string path)
+        public Orders AddOrder(string path, Hash hash)
         {
-            var (shortFileName, fileData) = GeneratedFileData.GetFileInfo(path);
+            var (shortFileName, fileData) = GeneratedFileData.GetFileInfo(path, hash);
 
             Orders order = new Orders { FileName = shortFileName, FileData = fileData };
             database.OrderRepository.Add(order);

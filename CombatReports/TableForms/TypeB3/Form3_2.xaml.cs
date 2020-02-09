@@ -1,8 +1,7 @@
-﻿using CombatReports.DocumentExamplesForms.TableExamples.TypeB3;
-using CombatReports.DAL.Models;
+﻿using CombatReports.BLL.Services.Interfaces;
+using CombatReports.DocumentExamplesForms.TableExamples.TypeB3;
 using System.Windows;
 using Word = Microsoft.Office.Interop.Word;
-using CombatReports.BLL.Services.Interfaces;
 
 namespace CombatReports.TableForms.TypeB3
 {
@@ -12,10 +11,12 @@ namespace CombatReports.TableForms.TypeB3
     public partial class Form3_2 : Window
     {
         private readonly IOrderService orderService;
-        public Form3_2(IOrderService orderService)
+        private readonly IHashService hashService;
+        public Form3_2(IOrderService orderService, IHashService hashService)
         {
             InitializeComponent();
             this.orderService = orderService;
+            this.hashService = hashService;
         }
 
         private void ExampleButton_Click(object sender, RoutedEventArgs e)
@@ -254,7 +255,7 @@ namespace CombatReports.TableForms.TypeB3
         private void MenuButton_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
-            MainWindow mainWindow = new MainWindow(orderService);
+            MainWindow mainWindow = new MainWindow(orderService, hashService);
             mainWindow.Show();
         }
     }

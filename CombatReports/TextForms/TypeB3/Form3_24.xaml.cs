@@ -1,8 +1,10 @@
 ﻿using CombatReports.BLL.Services.Interfaces;
 using CombatReports.DocumentExamplesForms.TextExamples.TypeB3;
+using CombatReports.ManagingWindows;
 using System;
-using System.Globalization;
+using System.IO;
 using System.Windows;
+using Constant = CombatReports.Constants.Constants;
 using Word = Microsoft.Office.Interop.Word;
 
 namespace CombatReports.TextForms.TypeB3
@@ -13,10 +15,12 @@ namespace CombatReports.TextForms.TypeB3
     public partial class Form3_24 : Window
     {
         private readonly IOrderService orderService;
-        public Form3_24(IOrderService orderService)
+        private readonly IHashService hashService;
+        public Form3_24(IOrderService orderService, IHashService hashService)
         {
             InitializeComponent();
             this.orderService = orderService;
+            this.hashService = hashService;
         }
 
         private void ExampleButton_Click(object sender, RoutedEventArgs e)
@@ -105,34 +109,43 @@ namespace CombatReports.TextForms.TypeB3
 
             try
             {
-                string date = DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss-fff",
-                                            CultureInfo.InvariantCulture);
-                objDoc.SaveAs($"Form 3_24 {date}");
+                Directory.CreateDirectory(Constant.Root);
+                objDoc.SaveAs($"{Constant.Root}/Form 3_24 {Constant.Date}");
                 string path = objDoc.FullName;
-                objDoc.PrintOut();
+                
+                var dialog = new DialogPrintDocument("Підтвердити друк?");
+                dialog.ShowDialog();
+                if (dialog.Cancelled != true)
+                {
+                    objDoc.PrintOut();
+                }
+                
                 objDoc.Close();
                 objWord.Quit();
-                
-                var order = orderService.AddOrder(path);
+
+                var order = orderService.AddOrder(path, hashService.GetHash());
                 if (order != null)
                 {
-                    MessageBox.Show("Донесення занесено до бази даних!");
+                    CustomMessageBox messageBox = new CustomMessageBox("Донесення занесено до бази даних!");
+                    messageBox.ShowDialog();
                 }
                 else
                 {
-                    MessageBox.Show("Сталася помилка! Донесення не занесено до бази даних!");
+                    CustomMessageBox messageBox = new CustomMessageBox("Сталася помилка! Донесення не занесено до бази даних!");
+                    messageBox.ShowDialog();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                CustomMessageBox messageBox = new CustomMessageBox(ex.Message);
+                messageBox.ShowDialog();
             }
         }
 
         private void MenuButton_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
-            MainWindow mainWindow = new MainWindow(orderService);
+            MainWindow mainWindow = new MainWindow(orderService, hashService);
             mainWindow.Show();
         }
     }

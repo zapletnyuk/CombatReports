@@ -6,6 +6,6 @@ namespace CombatReports.BLL.Services.Interfaces
     public interface IOrderService
     {
         List<Orders> GetOrders();
-        Orders AddOrder(string path);
+        Orders AddOrder(string path, Hash hash);
     }
 }

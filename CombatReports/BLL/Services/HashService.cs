@@ -1,7 +1,7 @@
 ﻿using CombatReports.BLL.Services.Interfaces;
 using CombatReports.DAL.Models;
 using CombatReports.DAL.UnitOfWork;
-using System.Collections.Generic;
+using System.Linq;
 
 namespace CombatReports.BLL.Services
 {
@@ -13,9 +13,9 @@ namespace CombatReports.BLL.Services
             this.database = database;
         }
 
-        public List<Hash> GetHash()
+        public Hash GetHash()
         {
-            return database.HashRepository.GetAll();
+            return database.HashRepository.GetAll().FirstOrDefault();
         }
     }
 }
