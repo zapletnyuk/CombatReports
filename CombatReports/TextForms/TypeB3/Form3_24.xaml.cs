@@ -112,14 +112,14 @@ namespace CombatReports.TextForms.TypeB3
                 Directory.CreateDirectory(Constant.RootToSaveGenerated);
                 objDoc.SaveAs($"{Constant.RootToSaveGenerated}Form 3_24 {Constant.Date}");
                 string path = objDoc.FullName;
-                
+
                 var dialog = new DialogPrintDocument("Підтвердити друк?");
                 dialog.ShowDialog();
                 if (dialog.Cancelled != true)
                 {
                     objDoc.PrintOut();
                 }
-                
+
                 objDoc.Close();
                 objWord.Quit();
 

@@ -1,5 +1,5 @@
-﻿using CombatReports.DAL.Repositories.InterfacesRepositories;
-using CombatReports.DAL.Models;
+﻿using CombatReports.DAL.Models;
+using CombatReports.DAL.Repositories.InterfacesRepositories;
 
 namespace CombatReports.DAL.Repositories.ImplementedRepositories
 {

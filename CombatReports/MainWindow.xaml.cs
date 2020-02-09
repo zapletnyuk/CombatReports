@@ -128,7 +128,7 @@ namespace CombatReports
                     Directory.CreateDirectory(Constant.RootToSaveRetrievedFromDb);
                     using FileStream fs = new FileStream($"{Constant.RootToSaveRetrievedFromDb}" + order.FileName + ".docx", FileMode.OpenOrCreate);
                     fs.Write(order.FileData, 0, order.FileData.Length);
-                    
+
                     CustomMessageBox messageBox = new CustomMessageBox($"Військове бойове донесення збережено.");
                     messageBox.ShowDialog();
                 }

@@ -88,7 +88,7 @@ namespace CombatReports.TextForms.TypeB3
             objWord.Selection.TypeText(".\nРекогносцировку проводжу з ");
             objWord.Selection.TypeText(textBox18.Text);
             objWord.Selection.TypeText(", де віддам бойовий наказ.");
-            
+
             try
             {
                 Directory.CreateDirectory(Constant.RootToSaveGenerated);

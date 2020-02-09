@@ -40,16 +40,16 @@ namespace CombatReports.TextForms.TypeB4
             objDoc = objWord.Documents.Add(ref objMissing, ref objMissing, ref objMissing, ref objMissing);
             Word.Range wordRan;
             wordRan = objDoc.Range(ref objMissing, ref objMissing);
-            
+
             // Форматування
             wordRan.Font.Size = 14;
             wordRan.Font.Name = "Times New Roman";
-            wordRan.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphJustify; 
+            wordRan.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphJustify;
             wordRan.ParagraphFormat.LineSpacing = 18;
             wordRan.ParagraphFormat.FirstLineIndent = objWord.InchesToPoints((float)0.5);
             wordRan.ParagraphFormat.SpaceAfter = 0;
             wordRan.ParagraphFormat.SpaceBefore = 0;
-            
+
             // Генерація вмісту
             objWord.Selection.TypeText("В.4.6. Схема опорного пункту роти\nНа схемі опорного пункту роти:\n- орієнтири ");
             objWord.Selection.TypeText(textBox1.Text);

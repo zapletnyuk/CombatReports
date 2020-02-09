@@ -11,7 +11,7 @@
         Width="480"
         MinHeight="400"
         MinWidth="480">
-    
+
     <Grid>
         <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
             <Canvas Width="{Binding ActualWidth, ElementName=image}" Height="{Binding ActualHeight, ElementName=image}">
@@ -25,5 +25,5 @@
             </Canvas>
         </ScrollViewer>
     </Grid>
-    
+
 </Window>
