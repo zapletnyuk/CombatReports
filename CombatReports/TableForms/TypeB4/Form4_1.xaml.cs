@@ -1,6 +1,10 @@
 ﻿using CombatReports.BLL.Services.Interfaces;
 using CombatReports.DocumentExamplesForms.TableExamples.TypeB4;
+using CombatReports.ManagingWindows;
+using System;
+using System.IO;
 using System.Windows;
+using Constant = CombatReports.Constants.Constants;
 using Word = Microsoft.Office.Interop.Word;
 
 namespace CombatReports.TableForms.TypeB4
@@ -225,6 +229,40 @@ namespace CombatReports.TableForms.TypeB4
             tableObj.Cell(18, 3).Range.Text = textBox52.Text;
             tableObj.Cell(18, 4).Range.Text = textBox53.Text;
             par7.InsertParagraphAfter();
+
+            try
+            {
+                Directory.CreateDirectory(Constant.Root);
+                objDoc.SaveAs($"{Constant.Root}/Form 4_1 {Constant.Date}");
+                string path = objDoc.FullName;
+
+                var dialog = new DialogPrintDocument("Підтвердити друк?");
+                dialog.ShowDialog();
+                if (dialog.Cancelled != true)
+                {
+                    objDoc.PrintOut();
+                }
+
+                objDoc.Close();
+                objWord.Quit();
+
+                var order = orderService.AddOrder(path, hashService.GetHash());
+                if (order != null)
+                {
+                    CustomMessageBox messageBox = new CustomMessageBox("Донесення занесено до бази даних!");
+                    messageBox.ShowDialog();
+                }
+                else
+                {
+                    CustomMessageBox messageBox = new CustomMessageBox("Сталася помилка! Донесення не занесено до бази даних!");
+                    messageBox.ShowDialog();
+                }
+            }
+            catch (Exception ex)
+            {
+                CustomMessageBox messageBox = new CustomMessageBox(ex.Message);
+                messageBox.ShowDialog();
+            }
         }
 
         private void MenuButton_Click(object sender, RoutedEventArgs e)

@@ -1,6 +1,10 @@
 ﻿using CombatReports.BLL.Services.Interfaces;
 using CombatReports.DocumentExamplesForms.TableExamples.TypeB3;
+using CombatReports.ManagingWindows;
+using System;
+using System.IO;
 using System.Windows;
+using Constant = CombatReports.Constants.Constants;
 using Word = Microsoft.Office.Interop.Word;
 
 namespace CombatReports.TableForms.TypeB3
@@ -238,6 +242,40 @@ namespace CombatReports.TableForms.TypeB3
             // Генерація вмісту
             par8.Text = "Начальник штабу " + textBox54.Text + " мб";
             par8.InsertParagraphAfter();
+
+            try
+            {
+                Directory.CreateDirectory(Constant.Root);
+                objDoc.SaveAs($"{Constant.Root}/Form 3_4 {Constant.Date}");
+                string path = objDoc.FullName;
+
+                var dialog = new DialogPrintDocument("Підтвердити друк?");
+                dialog.ShowDialog();
+                if (dialog.Cancelled != true)
+                {
+                    objDoc.PrintOut();
+                }
+
+                objDoc.Close();
+                objWord.Quit();
+
+                var order = orderService.AddOrder(path, hashService.GetHash());
+                if (order != null)
+                {
+                    CustomMessageBox messageBox = new CustomMessageBox("Донесення занесено до бази даних!");
+                    messageBox.ShowDialog();
+                }
+                else
+                {
+                    CustomMessageBox messageBox = new CustomMessageBox("Сталася помилка! Донесення не занесено до бази даних!");
+                    messageBox.ShowDialog();
+                }
+            }
+            catch (Exception ex)
+            {
+                CustomMessageBox messageBox = new CustomMessageBox(ex.Message);
+                messageBox.ShowDialog();
+            }
         }
 
         private void MenuButton_Click(object sender, RoutedEventArgs e)

@@ -1,6 +1,10 @@
 ﻿using CombatReports.BLL.Services.Interfaces;
 using CombatReports.DocumentExamplesForms.TextExamples.TypeB4;
+using CombatReports.ManagingWindows;
+using System;
+using System.IO;
 using System.Windows;
+using Constant = CombatReports.Constants.Constants;
 using Word = Microsoft.Office.Interop.Word;
 
 namespace CombatReports.TextForms.TypeB4
@@ -97,6 +101,40 @@ namespace CombatReports.TextForms.TypeB4
             objWord.Selection.TypeText(";\n- місця командно-спостережних пунктів роти і взводів ");
             objWord.Selection.TypeText(textBox23.Text);
             objWord.Selection.TypeText(".");
+
+            try
+            {
+                Directory.CreateDirectory(Constant.Root);
+                objDoc.SaveAs($"{Constant.Root}/Form 4_6 {Constant.Date}");
+                string path = objDoc.FullName;
+
+                var dialog = new DialogPrintDocument("Підтвердити друк?");
+                dialog.ShowDialog();
+                if (dialog.Cancelled != true)
+                {
+                    objDoc.PrintOut();
+                }
+
+                objDoc.Close();
+                objWord.Quit();
+
+                var order = orderService.AddOrder(path, hashService.GetHash());
+                if (order != null)
+                {
+                    CustomMessageBox messageBox = new CustomMessageBox("Донесення занесено до бази даних!");
+                    messageBox.ShowDialog();
+                }
+                else
+                {
+                    CustomMessageBox messageBox = new CustomMessageBox("Сталася помилка! Донесення не занесено до бази даних!");
+                    messageBox.ShowDialog();
+                }
+            }
+            catch (Exception ex)
+            {
+                CustomMessageBox messageBox = new CustomMessageBox(ex.Message);
+                messageBox.ShowDialog();
+            }
         }
 
         private void MenuButton_Click(object sender, RoutedEventArgs e)
