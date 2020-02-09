@@ -1,5 +1,6 @@
 ﻿using CombatReports.BLL.Services.Interfaces;
 using CombatReports.DAL.Models;
+using CombatReports.Helpers;
 using CombatReports.ManagingWindows;
 using CombatReports.TableForms.TypeB3;
 using CombatReports.TableForms.TypeB4;
@@ -7,12 +8,11 @@ using CombatReports.TextForms.TypeB3;
 using CombatReports.TextForms.TypeB4;
 using CombatReports.TextForms.TypeB8;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Security.Cryptography;
-using System.Text;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using Constant = CombatReports.Constants.Constants;
 
 namespace CombatReports
 {
@@ -120,34 +120,21 @@ namespace CombatReports
             try
             {
                 string nameOfFile = SearchReportTextBox.Text;
-                List<Orders> orders = new List<Orders>();
-                orders = orderService.GetOrders();
-                bool flag = true;
-                if (orders.Count > 0)
+                Orders order = orderService.GetOrders().FirstOrDefault(o => o.FileName == nameOfFile);
+
+                if (order != null)
                 {
-                    foreach (Orders o in orders)
-                    {
-                        if (o.FileName == nameOfFile)
-                        {
-                            o.FileData = Decrypt(o.FileData);
-                            using (FileStream fs = new FileStream(@"C:\Users\nizap\Documents\" + o.FileName, FileMode.OpenOrCreate))
-                            {
-                                fs.Write(o.FileData, 0, o.FileData.Length);
-                                CustomMessageBox messageBox = new CustomMessageBox($"Військове бойове донесення {o.FileName} збережено.");
-                                messageBox.ShowDialog();
-                                flag = false;
-                            }
-                        }
-                    }
-                    if (flag)
-                    {
-                        CustomMessageBox messageBox = new CustomMessageBox("Військове бойове донесення не знайдено.");
-                        messageBox.ShowDialog();
-                    }
+                    order.FileData = Encryption.Decrypt(order.FileData, hashService.GetHash());
+                    Directory.CreateDirectory(Constant.RootToSaveRetrievedFromDb);
+                    using FileStream fs = new FileStream($"{Constant.RootToSaveRetrievedFromDb}" + order.FileName + ".docx", FileMode.OpenOrCreate);
+                    fs.Write(order.FileData, 0, order.FileData.Length);
+                    
+                    CustomMessageBox messageBox = new CustomMessageBox($"Військове бойове донесення збережено.");
+                    messageBox.ShowDialog();
                 }
                 else
                 {
-                    CustomMessageBox messageBox = new CustomMessageBox("База даних не містить попередньо згенерованих військових бойових донесень!");
+                    CustomMessageBox messageBox = new CustomMessageBox("Військове бойове донесення не знайдено.");
                     messageBox.ShowDialog();
                 }
             }
@@ -155,22 +142,6 @@ namespace CombatReports
             {
                 CustomMessageBox messageBox = new CustomMessageBox(ex.Message);
                 messageBox.ShowDialog();
-            }
-        }
-
-        public static byte[] Decrypt(byte[] data)
-        {
-            string hash = "myHash";
-            using (MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider())
-            {
-                byte[] keys = md5.ComputeHash(UTF8Encoding.UTF8.GetBytes(hash));
-                using (TripleDESCryptoServiceProvider tripDes = new TripleDESCryptoServiceProvider()
-                    { Key = keys, Mode = CipherMode.ECB, Padding = PaddingMode.PKCS7 })
-                {
-                    ICryptoTransform transform = tripDes.CreateDecryptor();
-                    byte[] results = transform.TransformFinalBlock(data, 0, data.Length);
-                    return results;
-                }
             }
         }
     }

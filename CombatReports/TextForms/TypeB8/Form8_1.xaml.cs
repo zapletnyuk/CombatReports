@@ -181,8 +181,8 @@ namespace CombatReports.TextForms.TypeB8
 
             try
             {
-                Directory.CreateDirectory(Constant.Root);
-                objDoc.SaveAs($"{Constant.Root}/Form 8_1 {Constant.Date}");
+                Directory.CreateDirectory(Constant.RootToSaveGenerated);
+                objDoc.SaveAs($"{Constant.RootToSaveGenerated}Form 8_1 {Constant.Date}");
                 string path = objDoc.FullName;
 
                 var dialog = new DialogPrintDocument("Підтвердити друк?");

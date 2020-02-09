@@ -225,8 +225,8 @@ namespace CombatReports.TableForms.TypeB4
 
             try
             {
-                Directory.CreateDirectory(Constant.Root);
-                objDoc.SaveAs($"{Constant.Root}/Form 4_2 {Constant.Date}");
+                Directory.CreateDirectory(Constant.RootToSaveGenerated);
+                objDoc.SaveAs($"{Constant.RootToSaveGenerated}Form 4_2 {Constant.Date}");
                 string path = objDoc.FullName;
 
                 var dialog = new DialogPrintDocument("Підтвердити друк?");
