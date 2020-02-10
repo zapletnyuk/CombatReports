@@ -58,6 +58,18 @@
             <Setter Property="Control.HorizontalAlignment" Value="Left" />
             <Setter Property="Control.Margin" Value="5, 19, 0, 0" />
         </Style>
+
+        <Style x:Key="DbSearchButton">
+            <Setter Property="Control.FontFamily" Value="Times New Roman" />
+            <Setter Property="Control.FontSize" Value="15" />
+            <Setter Property="Control.Width" Value="100" />
+            <Setter Property="Control.Height" Value="25" />
+            <Setter Property="Control.FontWeight" Value="Bold" />
+            <Setter Property="Control.Background" Value="#FFFFFF" />
+            <Setter Property="Control.VerticalAlignment" Value="Top" />
+            <Setter Property="Control.HorizontalAlignment" Value="Right" />
+            <Setter Property="Control.Margin" Value="5, 19, 5, 0" />
+        </Style>
     </Window.Resources>
 
     <Window.Background>
@@ -136,5 +148,6 @@
         </TextBlock>
 
         <Button x:Name="SearchButton" Grid.Row="5" Grid.Column="2" Content="Знайти" Style="{StaticResource SearchButton}" Click="SearchButton_Click" />
+        <Button x:Name="Db_SearchButton" Grid.Row="5" Grid.Column="2" Content="Вміст БД" Style="{StaticResource DbSearchButton}" Click="Db_SearchButton_Click" />
     </Grid>
 </Window>

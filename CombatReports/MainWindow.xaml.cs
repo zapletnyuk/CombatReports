@@ -144,5 +144,12 @@ namespace CombatReports
                 messageBox.ShowDialog();
             }
         }
+
+        private void Db_SearchButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            DataBaseContentDisplaying dbContent = new DataBaseContentDisplaying(orderService);
+            dbContent.Show();
+        }
     }
 }
