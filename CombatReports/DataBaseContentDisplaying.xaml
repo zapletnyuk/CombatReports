@@ -11,6 +11,20 @@
         Width="490"
         MinHeight="500"
         MinWidth="490">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Control.FontFamily" Value="Times New Roman" />
+            <Setter Property="Control.FontSize" Value="15" />
+            <Setter Property="Control.Width" Value="120" />
+            <Setter Property="Control.Height" Value="25" />
+            <Setter Property="Control.FontWeight" Value="Bold" />
+            <Setter Property="Control.Background" Value="#FFFFFF" />
+            <Setter Property="Control.VerticalAlignment" Value="Top" />
+            <Setter Property="Control.HorizontalAlignment" Value="Center" />
+            <Setter Property="Control.Margin" Value="0, 10, 0, 10" />
+        </Style>
+    </Window.Resources>
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
@@ -22,5 +36,9 @@
                 <DataGridTextColumn Binding="{Binding FileData}" Header="Вміст файлу" Width="150"/>
             </DataGrid.Columns>
         </DataGrid>
+
+        <StackPanel HorizontalAlignment="Center"  Grid.Row="1" Orientation="Horizontal">
+            <Button x:Name="getOrderButton" Content="Зберегти наказ" Click="getOrderButton_Click" />
+        </StackPanel>
     </Grid>
 </Window>
