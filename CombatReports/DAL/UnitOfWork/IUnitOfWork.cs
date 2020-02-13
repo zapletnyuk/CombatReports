@@ -6,7 +6,6 @@ namespace CombatReports.DAL.UnitOfWork
     {
         IOrderRepository OrderRepository { get; }
         IHashRepository HashRepository { get; }
-        IUserRepository UserRepository { get; }
         void Save();
     }
 }
