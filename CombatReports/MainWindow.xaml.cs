@@ -1,12 +1,12 @@
-﻿using CombatReports.BLL.Services.Interfaces;
-using CombatReports.DAL.Models;
+﻿using CombatReports.Business.Services.Interfaces;
+using CombatReports.Data.Models;
 using CombatReports.Helpers;
-using CombatReports.ManagingWindows;
-using CombatReports.TableForms.TypeB3;
-using CombatReports.TableForms.TypeB4;
-using CombatReports.TextForms.TypeB3;
-using CombatReports.TextForms.TypeB4;
-using CombatReports.TextForms.TypeB8;
+using CombatReports.DialogWindows;
+using CombatReports.TableOrders.TypeB3;
+using CombatReports.TableOrders.TypeB4;
+using CombatReports.TextOrders.TypeB3;
+using CombatReports.TextOrders.TypeB4;
+using CombatReports.TextOrders.TypeB8;
 using System;
 using System.IO;
 using System.Linq;
@@ -23,6 +23,7 @@ namespace CombatReports
     {
         private readonly IOrderService orderService;
         private readonly IHashService hashService;
+
         public MainWindow(IOrderService orderService, IHashService hashService)
         {
             InitializeComponent();
@@ -30,87 +31,56 @@ namespace CombatReports
             this.hashService = hashService;
         }
 
-        private void TextDocumentsTypeB3ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void TextDocumentsComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            switch (TextDocumentsTypeB3ComboBox.SelectedIndex)
+            switch (TextDocumentsComboBox.SelectedIndex)
             {
                 case 0:
-                    this.Hide();
-                    Form3_10 form3_10 = new Form3_10(orderService, hashService);
-                    form3_10.Show();
+                    Order3_10 form3_10 = new Order3_10(orderService);
+                    form3_10.ShowDialog();
                     return;
                 case 1:
-                    this.Hide();
-                    Form3_24 form3_24 = new Form3_24(orderService, hashService);
-                    form3_24.Show();
+                    Order3_24 form3_24 = new Order3_24(orderService);
+                    form3_24.ShowDialog();
                     return;
-            }
-        }
-
-        private void TextDocumentsTypeB4ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            switch (TextDocumentsTypeB4ComboBox.SelectedIndex)
-            {
-                case 0:
-                    this.Hide();
-                    Form4_6 form4_6 = new Form4_6(orderService, hashService);
-                    form4_6.Show();
+                case 2:
+                    Order4_6 form4_6 = new Order4_6(orderService);
+                    form4_6.ShowDialog();
+                    break;
+                case 3:
+                    Order8_1 form8_1 = new Order8_1(orderService);
+                    form8_1.ShowDialog();
+                    break;
+                case 4:
+                    Order8_2 form8_2 = new Order8_2(orderService);
+                    form8_2.ShowDialog();
                     break;
             }
         }
 
-        private void TextDocumentsTypeB8ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void TableDocumentsComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            switch (TextDocumentsTypeB8ComboBox.SelectedIndex)
+            switch (TableDocumentsComboBox.SelectedIndex)
             {
                 case 0:
-                    this.Hide();
-                    Form8_1 form8_1 = new Form8_1(orderService, hashService);
-                    form8_1.Show();
+                    Order3_2 form3_2 = new Order3_2(orderService);
+                    form3_2.ShowDialog();
                     break;
                 case 1:
-                    this.Hide();
-                    Form8_2 form8_2 = new Form8_2(orderService, hashService);
-                    form8_2.Show();
-                    break;
-            }
-        }
-
-        private void TableDocumentsTypeB3ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            switch (TableDocumentsTypeB3ComboBox.SelectedIndex)
-            {
-                case 0:
-                    this.Hide();
-                    Form3_2 form3_2 = new Form3_2(orderService, hashService);
-                    form3_2.Show();
-                    break;
-                case 1:
-                    this.Hide();
-                    Form3_3 form3_3 = new Form3_3(orderService, hashService);
-                    form3_3.Show();
+                    Order3_3 form3_3 = new Order3_3(orderService);
+                    form3_3.ShowDialog();
                     break;
                 case 2:
-                    this.Hide();
-                    Form3_4 form3_4 = new Form3_4(orderService, hashService);
-                    form3_4.Show();
+                    Order3_4 form3_4 = new Order3_4(orderService);
+                    form3_4.ShowDialog();
                     break;
-            }
-        }
-
-        private void TableDocumentsTypeB4ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            switch (TableDocumentsTypeB4ComboBox.SelectedIndex)
-            {
-                case 0:
-                    this.Hide();
-                    Form4_1 form4_1 = new Form4_1(orderService, hashService);
-                    form4_1.Show();
+                case 3:
+                    Order4_1 form4_1 = new Order4_1(orderService);
+                    form4_1.ShowDialog();
                     break;
-                case 1:
-                    this.Hide();
-                    Form4_2 form4_2 = new Form4_2(orderService, hashService);
-                    form4_2.Show();
+                case 4:
+                    Order4_2 form4_2 = new Order4_2(orderService);
+                    form4_2.ShowDialog();
                     break;
             }
         }
@@ -120,7 +90,7 @@ namespace CombatReports
             try
             {
                 string nameOfFile = SearchReportTextBox.Text;
-                Orders order = orderService.GetOrders().FirstOrDefault(o => o.FileName == nameOfFile);
+                Order order = orderService.GetOrders().FirstOrDefault(o => o.FileName == nameOfFile);
 
                 if (order != null)
                 {
@@ -129,12 +99,12 @@ namespace CombatReports
                     using FileStream fs = new FileStream($"{Constant.RootToSaveRetrievedFromDb}" + order.FileName + ".docx", FileMode.OpenOrCreate);
                     fs.Write(order.FileData, 0, order.FileData.Length);
 
-                    CustomMessageBox messageBox = new CustomMessageBox($"Військове бойове донесення збережено.");
+                    CustomMessageBox messageBox = new CustomMessageBox(Constant.OrderSavedMessage);
                     messageBox.ShowDialog();
                 }
                 else
                 {
-                    CustomMessageBox messageBox = new CustomMessageBox("Військове бойове донесення не знайдено.");
+                    CustomMessageBox messageBox = new CustomMessageBox(Constant.OrderNotFoundMessage);
                     messageBox.ShowDialog();
                 }
             }
@@ -147,9 +117,8 @@ namespace CombatReports
 
         private void Db_SearchButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Hide();
             DataBaseContentDisplaying dbContent = new DataBaseContentDisplaying(orderService, hashService);
-            dbContent.Show();
+            dbContent.ShowDialog();
         }
     }
 }

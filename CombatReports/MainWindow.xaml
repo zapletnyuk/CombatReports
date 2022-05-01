@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Icon="Assets/Military-Camouflage.ico"
+        Icon="Photos/Military-Camouflage.ico"
         Title="Головне меню" 
         Height="415" 
         Width="880"
@@ -50,40 +50,38 @@
         <Style x:Key="SearchButton">
             <Setter Property="Control.FontFamily" Value="Times New Roman" />
             <Setter Property="Control.FontSize" Value="15" />
-            <Setter Property="Control.Width" Value="100" />
+            <Setter Property="Control.Width" Value="110" />
             <Setter Property="Control.Height" Value="25" />
             <Setter Property="Control.FontWeight" Value="Bold" />
             <Setter Property="Control.Background" Value="#FFFFFF" />
             <Setter Property="Control.VerticalAlignment" Value="Top" />
             <Setter Property="Control.HorizontalAlignment" Value="Left" />
-            <Setter Property="Control.Margin" Value="5, 19, 0, 0" />
+            <Setter Property="Control.Margin" Value="5, 20, 0, 0" />
         </Style>
 
         <Style x:Key="DbSearchButton">
             <Setter Property="Control.FontFamily" Value="Times New Roman" />
             <Setter Property="Control.FontSize" Value="15" />
-            <Setter Property="Control.Width" Value="100" />
+            <Setter Property="Control.Width" Value="250" />
             <Setter Property="Control.Height" Value="25" />
             <Setter Property="Control.FontWeight" Value="Bold" />
             <Setter Property="Control.Background" Value="#FFFFFF" />
             <Setter Property="Control.VerticalAlignment" Value="Top" />
-            <Setter Property="Control.HorizontalAlignment" Value="Right" />
-            <Setter Property="Control.Margin" Value="5, 19, 5, 0" />
+            <Setter Property="Control.HorizontalAlignment" Value="Left" />
+            <Setter Property="Control.Margin" Value="5, 10, 5, 0" />
         </Style>
     </Window.Resources>
 
     <Window.Background>
-        <ImageBrush ImageSource="Assets/Military-Camouflage.jpg" Stretch="Fill" />
+        <ImageBrush ImageSource="Photos/Military-Camouflage.jpg" Stretch="Fill" />
     </Window.Background>
 
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40" />
-            <RowDefinition Height="100" />
+            <RowDefinition Height="150" />
             <RowDefinition Height="40" />
-            <RowDefinition Height="100" />
-            <RowDefinition Height="40" />
-            <RowDefinition Height="100" />
+            <RowDefinition Height="70" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
@@ -91,48 +89,34 @@
             <ColumnDefinition Width="255" />
             <ColumnDefinition Width="50" />
             <ColumnDefinition Width="255" />
-            <ColumnDefinition Width="50" />
-            <ColumnDefinition Width="255" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <Label Grid.Row="0" Grid.Column="0" Content="Текстові документи" Style="{StaticResource Labels}" />
-        <Label Grid.Row="2" Grid.Column="0" Content="Таблиці" Style="{StaticResource Labels}" />
-        <Label Grid.Row="4" Grid.Column="0" Content="Пошук донесень" Style="{StaticResource Labels}" />
+        <Label Grid.Row="0" Grid.Column="0" Content="Текстові накази" Style="{StaticResource Labels}" />
+        <Label Grid.Row="0" Grid.Column="2" Content="Табличні накази" Style="{StaticResource Labels}" />
+        <Label Grid.Row="2" Grid.Column="0" Content="Пошук наказів" Style="{StaticResource Labels}" />
 
-        <ComboBox Grid.Row="1" Grid.Column="0" Text="Бойові донесення типу В.3" IsEditable="True" 
-                  IsReadOnly="True" x:Name="TextDocumentsTypeB3ComboBox" Style="{StaticResource ComboBoxes}" SelectionChanged="TextDocumentsTypeB3ComboBox_SelectionChanged">
-            <ComboBoxItem Content="Бойове донесення 3.10" />
-            <ComboBoxItem Content="Бойове донесення 3.24" />
+        <ComboBox Grid.Row="1" Grid.Column="0" Text="Текстові накази" IsEditable="True" 
+                  IsReadOnly="True" x:Name="TextDocumentsComboBox" Style="{StaticResource ComboBoxes}" SelectionChanged="TextDocumentsComboBox_SelectionChanged">
+            <ComboBoxItem Content="Наказ 3.10" />
+            <ComboBoxItem Content="Наказ 3.24" />
+            <ComboBoxItem Content="Наказ 4.6" />
+            <ComboBoxItem Content="Наказ 8.1" />
+            <ComboBoxItem Content="Наказ 8.2" />
         </ComboBox>
 
-        <ComboBox Grid.Row="1" Grid.Column="2" Text="Бойові донесення типу В.4" IsEditable="True" 
-                  IsReadOnly="True" x:Name="TextDocumentsTypeB4ComboBox" Style="{StaticResource ComboBoxes}" SelectionChanged="TextDocumentsTypeB4ComboBox_SelectionChanged">
-            <ComboBoxItem Content="Бойове донесення 4.6" />
+        <ComboBox Grid.Row="1" Grid.Column="2" Text="Табличні накази" IsEditable="True" 
+                  IsReadOnly="True" x:Name="TableDocumentsComboBox" Style="{StaticResource ComboBoxes}" SelectionChanged="TableDocumentsComboBox_SelectionChanged">
+            <ComboBoxItem Content="Наказ 3.2" />
+            <ComboBoxItem Content="Наказ 3.3" />
+            <ComboBoxItem Content="Наказ 3.4" />
+            <ComboBoxItem Content="Наказ 4.1" />
+            <ComboBoxItem Content="Наказ 4.2" />
         </ComboBox>
 
-        <ComboBox Grid.Row="1" Grid.Column="4" Text="Бойові донесення типу В.8" IsEditable="True" 
-                  IsReadOnly="True" x:Name="TextDocumentsTypeB8ComboBox" Style="{StaticResource ComboBoxes}" SelectionChanged="TextDocumentsTypeB8ComboBox_SelectionChanged">
-            <ComboBoxItem Content="Бойове донесення 8.1" />
-            <ComboBoxItem Content="Бойове донесення 8.2" />
-        </ComboBox>
-
-        <ComboBox Grid.Row="3" Grid.Column="0" Text="Бойові донесення типу В.3" IsEditable="True" 
-                  IsReadOnly="True" x:Name="TableDocumentsTypeB3ComboBox" Style="{StaticResource ComboBoxes}" SelectionChanged="TableDocumentsTypeB3ComboBox_SelectionChanged">
-            <ComboBoxItem Content="Бойове донесення 3.2" />
-            <ComboBoxItem Content="Бойове донесення 3.3" />
-            <ComboBoxItem Content="Бойове донесення 3.4" />
-        </ComboBox>
-
-        <ComboBox Grid.Row="3" Grid.Column="2" Text="Бойові донесення типу В.4" IsEditable="True" 
-                  IsReadOnly="True" x:Name="TableDocumentsTypeB4ComboBox" Style="{StaticResource ComboBoxes}" SelectionChanged="TableDocumentsTypeB4ComboBox_SelectionChanged">
-            <ComboBoxItem Content="Бойове донесення 4.1" />
-            <ComboBoxItem Content="Бойове донесення 4.2" />
-        </ComboBox>
-
-        <TextBox x:Name="SearchReportTextBox" Grid.Row="5" Grid.Column="0" Style="{StaticResource SearchTextBox}" />
-        <TextBlock IsHitTestVisible="False" Text="Введіть назву донесення" VerticalAlignment="Top" 
-                   HorizontalAlignment="Left" Margin="10, 24, 0, 0" Foreground="DarkGray" Grid.Row="5" Grid.Column="0">
+        <TextBox x:Name="SearchReportTextBox" Grid.Row="3" Grid.Column="0" Style="{StaticResource SearchTextBox}" />
+        <TextBlock IsHitTestVisible="False" Text="Введіть назву наказу" VerticalAlignment="Top" 
+                   HorizontalAlignment="Left" Margin="10, 24, 0, 0" Foreground="DarkGray" Grid.Row="3" Grid.Column="0">
             <TextBlock.Style>
                 <Style TargetType="{x:Type TextBlock}">
                     <Setter Property="Visibility" Value="Collapsed" />
@@ -147,7 +131,7 @@
             </TextBlock.Style>
         </TextBlock>
 
-        <Button x:Name="SearchButton" Grid.Row="5" Grid.Column="2" Content="Знайти" Style="{StaticResource SearchButton}" Click="SearchButton_Click" />
-        <Button x:Name="Db_SearchButton" Grid.Row="5" Grid.Column="2" Content="Вміст БД" Style="{StaticResource DbSearchButton}" Click="Db_SearchButton_Click" />
+        <Button x:Name="SearchButton" Grid.Row="3" Grid.Column="2" Content="Знайти наказ" Style="{StaticResource SearchButton}" Click="SearchButton_Click" />
+        <Button x:Name="Db_SearchButton" Grid.Row="4" Grid.Column="0" Content="Переглянути створені накази" Style="{StaticResource DbSearchButton}" Click="Db_SearchButton_Click" />
     </Grid>
 </Window>

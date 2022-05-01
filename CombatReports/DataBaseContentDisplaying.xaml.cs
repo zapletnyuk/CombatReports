@@ -1,7 +1,7 @@
-﻿using CombatReports.BLL.Services.Interfaces;
-using CombatReports.DAL.Models;
+﻿using CombatReports.Business.Services.Interfaces;
+using CombatReports.Data.Models;
 using CombatReports.Helpers;
-using CombatReports.ManagingWindows;
+using CombatReports.DialogWindows;
 using System;
 using System.IO;
 using System.Windows;
@@ -9,50 +9,48 @@ using Constant = CombatReports.Constants.Constants;
 
 namespace CombatReports
 {
-    /// <summary>
-    /// Interaction logic for DataBaseContentDisplaying.xaml
-    /// </summary>
     public partial class DataBaseContentDisplaying : Window
     {
-        private readonly IOrderService orderService;
         private readonly IHashService hashService;
+
         public DataBaseContentDisplaying(IOrderService orderService, IHashService hashService)
         {
             InitializeComponent();
-            this.orderService = orderService;
+
             this.hashService = hashService;
+
             if (orderService.GetOrders() != null)
             {
                 ordersGrid.ItemsSource = orderService.GetOrders();
             }
             else
             {
-                CustomMessageBox messageBox = new CustomMessageBox("У базі даних немає попередньо згенерованих бойових донесень.");
+                CustomMessageBox messageBox = new CustomMessageBox(Constant.OrderNotFoundMessage);
                 messageBox.ShowDialog();
             }
         }
 
-        private void getOrderButton_Click(object sender, RoutedEventArgs e)
+        private void GetOrderButton_Click(object sender, RoutedEventArgs e)
         {
             if (ordersGrid.SelectedItems.Count == 1)
             {
                 try
                 {
-                    Orders order = ordersGrid.SelectedItem as Orders;
+                    Order order = ordersGrid.SelectedItem as Order;
 
                     if (order != null)
                     {
                         order.FileData = Encryption.Decrypt(order.FileData, hashService.GetHash());
                         Directory.CreateDirectory(Constant.RootToSaveRetrievedFromDb);
-                        using FileStream fs = new FileStream($"{Constant.RootToSaveRetrievedFromDb}" + order.FileName + ".docx", FileMode.OpenOrCreate);
+                        using FileStream fs = new FileStream($"{Constant.RootToSaveRetrievedFromDb}" + order.FileName + $"{Constant.WordOfficeExtension}", FileMode.OpenOrCreate);
                         fs.Write(order.FileData, 0, order.FileData.Length);
 
-                        CustomMessageBox messageBox = new CustomMessageBox($"Військове бойове донесення збережено.");
+                        CustomMessageBox messageBox = new CustomMessageBox(Constant.OrderSavedMessage);
                         messageBox.ShowDialog();
                     }
                     else
                     {
-                        CustomMessageBox messageBox = new CustomMessageBox("Військове бойове донесення не знайдено.");
+                        CustomMessageBox messageBox = new CustomMessageBox(Constant.OrderNotFoundMessage);
                         messageBox.ShowDialog();
                     }
                 }
@@ -64,7 +62,7 @@ namespace CombatReports
             }
             else
             {
-                CustomMessageBox messageBox = new CustomMessageBox("Виберіть лише один файл для збереження!");
+                CustomMessageBox messageBox = new CustomMessageBox(Constant.ChooseOnlyOneFileForSaveMessage);
                 messageBox.ShowDialog();
             }
         }

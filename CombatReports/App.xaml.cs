@@ -1,9 +1,9 @@
-﻿using CombatReports.BLL.Services;
-using CombatReports.BLL.Services.Interfaces;
-using CombatReports.DAL.Models;
-using CombatReports.DAL.Repositories.ImplementedRepositories;
-using CombatReports.DAL.Repositories.InterfacesRepositories;
-using CombatReports.DAL.UnitOfWork;
+﻿using CombatReports.Business.Services;
+using CombatReports.Business.Services.Interfaces;
+using CombatReports.Data.Models;
+using CombatReports.Data.Repositories.ImplementedRepositories;
+using CombatReports.Data.Repositories.Interfaces;
+using CombatReports.Data.UnitOfWork;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -22,6 +22,11 @@ namespace CombatReports
 
         public IConfiguration Configuration { get; private set; }
 
+        public App()
+        {
+            ShutdownMode = ShutdownMode.OnLastWindowClose;
+        }
+
         protected override void OnStartup(StartupEventArgs e)
         {
             var builder = new ConfigurationBuilder()
@@ -36,12 +41,12 @@ namespace CombatReports
             ServiceProvider = serviceCollection.BuildServiceProvider();
 
             var mainWindow = ServiceProvider.GetRequiredService<MainWindow>();
-            mainWindow.Show();
+            mainWindow.ShowDialog();
         }
 
         private void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<OrdersDbContext>
+            services.AddDbContext<MilitaryOrdersContext>
                 (options => options.UseSqlServer(
                     Configuration.GetConnectionString("SqlConnection")));
 

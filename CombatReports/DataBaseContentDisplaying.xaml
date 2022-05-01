@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Icon="Assets/Military-Camouflage.ico"
+        Icon="Photos/Military-Camouflage.ico"
         Title="Файли бази даних" 
         Height="500" 
         Width="490"
@@ -38,7 +38,7 @@
         </DataGrid>
 
         <StackPanel HorizontalAlignment="Center"  Grid.Row="1" Orientation="Horizontal">
-            <Button x:Name="getOrderButton" Content="Зберегти наказ" Click="getOrderButton_Click" />
+            <Button x:Name="getOrderButton" Content="Зберегти наказ" Click="GetOrderButton_Click" />
         </StackPanel>
     </Grid>
 </Window>

@@ -7,11 +7,9 @@ namespace CombatReports.Helpers
     {
         public static byte[] ComputeHash(string dataToHash)
         {
-            using (SHA256 sha256Hash = SHA256.Create())
-            {
-                byte[] hashedData = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(dataToHash));
-                return hashedData;
-            }
+            using SHA256 sha256Hash = SHA256.Create();
+            byte[] hashedData = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(dataToHash));
+            return hashedData;
         }
     }
 }
