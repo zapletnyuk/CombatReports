@@ -32,8 +32,7 @@
         </Grid.RowDefinitions>
         <DataGrid AutoGenerateColumns="False" x:Name="ordersGrid">
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding FileName}" Header="Назва файлу" Width="300"/>
-                <DataGridTextColumn Binding="{Binding FileData}" Header="Вміст файлу" Width="150"/>
+                <DataGridTextColumn Binding="{Binding FileName}" Header="Назва файлу" Width="490"/>
             </DataGrid.Columns>
         </DataGrid>
 

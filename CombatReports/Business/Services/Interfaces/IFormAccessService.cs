@@ -4,9 +4,8 @@ using System.Collections.Generic;
 
 namespace CombatReports.Business.Services.Interfaces
 {
-    public interface IOrderService
+    public interface IFormAccessService
     {
-        List<Order> GetOrders(UserProfile userProfile);
-        Order AddOrder(string path, int userId, int formId);
+        List<FormAccess> GetFormAccesses(UserProfile userProfile);
     }
 }

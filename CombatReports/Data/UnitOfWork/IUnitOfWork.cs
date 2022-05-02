@@ -7,6 +7,8 @@ namespace CombatReports.Data.UnitOfWork
         IOrderRepository OrderRepository { get; }
         IHashRepository HashRepository { get; }
         IUserRepository UserRepository { get; }
+        ISubordinateAccessRepository SubordinateAccessRepository { get; }
+        IFormAccessRepository FormAccessRepository { get; }
         void Save();
     }
 }

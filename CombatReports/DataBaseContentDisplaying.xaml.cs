@@ -13,15 +13,15 @@ namespace CombatReports
     {
         private readonly IHashService hashService;
 
-        public DataBaseContentDisplaying(IOrderService orderService, IHashService hashService)
+        public DataBaseContentDisplaying(IOrderService orderService, IHashService hashService, UserProfile userProfile)
         {
             InitializeComponent();
 
             this.hashService = hashService;
 
-            if (orderService.GetOrders() != null)
+            if (orderService.GetOrders(userProfile) != null)
             {
-                ordersGrid.ItemsSource = orderService.GetOrders();
+                ordersGrid.ItemsSource = orderService.GetOrders(userProfile);
             }
             else
             {

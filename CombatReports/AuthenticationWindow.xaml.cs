@@ -10,13 +10,15 @@ namespace CombatReports
         private readonly IOrderService orderService;
         private readonly IHashService hashService;
         private readonly IUserService userService;
+        private readonly IFormAccessService formAccessService;
 
-        public AuthenticationWindow(IOrderService orderService, IHashService hashService, IUserService userService)
+        public AuthenticationWindow(IOrderService orderService, IHashService hashService, IUserService userService, IFormAccessService formAccessService)
         {
             InitializeComponent();
             this.orderService = orderService;
             this.hashService = hashService;
             this.userService = userService;
+            this.formAccessService = formAccessService;
         }
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
@@ -27,7 +29,7 @@ namespace CombatReports
 
                 if (userProfile != null)
                 {
-                    MainWindow mainWindow = new MainWindow(orderService, hashService, userService, userProfile);
+                    MainWindow mainWindow = new MainWindow(orderService, hashService, userService, formAccessService, userProfile);
                     mainWindow.Show();
                     Close();
                 }

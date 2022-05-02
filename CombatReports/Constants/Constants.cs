@@ -22,6 +22,7 @@ namespace CombatReports.Constants
         public static readonly string WrongHashMessage = "Невірний ключ. Повторіть, будь ласка, ще раз.";
         public static readonly string EnterAuthorizationInfo = "Введіть дані для автентифікації.";
         public static readonly string WrongAuthorizationInfo = "Некоректні дані.";
+        public static readonly string NoAccessMessage = "Ви не маєте доступу до даної форми наказу.";
 
         public static readonly int Form310 = 1310;
         public static readonly int Form324 = 1324;

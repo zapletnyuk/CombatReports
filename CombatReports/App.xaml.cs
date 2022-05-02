@@ -55,10 +55,13 @@ namespace CombatReports
             services.AddScoped<IOrderService, OrderService>();
             services.AddScoped<IHashService, HashService>();
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IFormAccessService, FormAccessService>();
 
             services.AddScoped<IOrderRepository, OrderRepository>();
             services.AddScoped<IHashRepository, HashRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<ISubordinateAccessRepository, SubordinateAccessRepository>();
+            services.AddScoped<IFormAccessRepository, FormAccessRepository>();
 
             services.AddScoped(typeof(MainWindow));
             services.AddScoped(typeof(AuthenticationWindow));

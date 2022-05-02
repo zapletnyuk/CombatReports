@@ -10,13 +10,21 @@ namespace CombatReports.Data.UnitOfWork
         public IOrderRepository OrderRepository { get; }
         public IHashRepository HashRepository { get; }
         public IUserRepository UserRepository { get; }
+        public ISubordinateAccessRepository SubordinateAccessRepository { get; }
+        public IFormAccessRepository FormAccessRepository { get; }
 
-        public UnitOfWork(MilitaryOrdersContext context, IOrderRepository orderRepository, IHashRepository hashRepository, IUserRepository userRepository)
+        public UnitOfWork(MilitaryOrdersContext context, IOrderRepository orderRepository, 
+            IHashRepository hashRepository, 
+            IUserRepository userRepository,
+            ISubordinateAccessRepository subordinateAccessRepository,
+            IFormAccessRepository formAccessRepository)
         {
             this.context = context;
             OrderRepository = orderRepository;
             HashRepository = hashRepository;
             UserRepository = userRepository;
+            SubordinateAccessRepository = subordinateAccessRepository;
+            FormAccessRepository = formAccessRepository;
         }
 
         public void Save()

@@ -3,6 +3,7 @@ using CombatReports.Data.Models;
 using CombatReports.Data.UnitOfWork;
 using CombatReports.Helpers;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace CombatReports.Business.Services
 {
@@ -16,9 +17,13 @@ namespace CombatReports.Business.Services
             this.hashService = hashService;
         }
 
-        public List<Order> GetOrders()
+        public List<Order> GetOrders(UserProfile userProfile)
         {
-            return database.OrderRepository.GetAll();
+            var orders = database.OrderRepository.GetAll();
+            var formAccesses = database.FormAccessRepository.GetAll().Where(x => x.UserId == userProfile.UserId).Select(x => x.FormId).ToList();
+            var subordinateAccesses = database.SubordinateAccessRepository.GetAll().Where(x => x.UserId == userProfile.UserId).Select(x => x.ChiefId).ToList();
+
+            return orders.Where(x => (formAccesses.Contains(x.FormId) && subordinateAccesses.Contains(x.UserId)) || userProfile.HasFullAccess || x.UserId == userProfile.UserId).ToList();
         }
 
         public Order AddOrder(string path, int userId, int formId)
