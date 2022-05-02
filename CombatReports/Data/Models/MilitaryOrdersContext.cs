@@ -20,6 +20,7 @@ namespace CombatReports.Data.Models
         public virtual DbSet<FormType> FormTypes { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<UserRole> UserRoles { get; set; }
-        public virtual DbSet<UserAccess> UserAccesses { get; set; }
+        public virtual DbSet<FormAccess> FormAccesses { get; set; }
+        public virtual DbSet<SubordinateAccess> SubordinateAccesses { get; set; }
     }
 }

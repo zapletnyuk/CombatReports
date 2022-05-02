@@ -14,7 +14,7 @@ namespace CombatReports.Helpers
                 fileData = new byte[fs.Length];
                 fs.Read(fileData, 0, fileData.Length);
             }
-            var fileInfo = (shortFileName, Encryption.Encrypt(fileData, hash));
+            var fileInfo = (shortFileName, AesCipher.Encrypt(fileData, hash));
             return fileInfo;
         }
     }

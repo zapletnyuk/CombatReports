@@ -40,12 +40,12 @@ namespace CombatReports
 
                     if (order != null)
                     {
-                        order.FileData = Encryption.Decrypt(order.FileData, hashService.GetHash());
+                        order.FileData = AesCipher.Decrypt(order.FileData, hashService.GetHash());
                         Directory.CreateDirectory(Constant.RootToSaveRetrievedFromDb);
                         using FileStream fs = new FileStream($"{Constant.RootToSaveRetrievedFromDb}" + order.FileName + $"{Constant.WordOfficeExtension}", FileMode.OpenOrCreate);
                         fs.Write(order.FileData, 0, order.FileData.Length);
 
-                        CustomMessageBox messageBox = new CustomMessageBox(Constant.OrderSavedMessage);
+                        CustomMessageBox messageBox = new CustomMessageBox(Constant.OrderSavedToPcMessage);
                         messageBox.ShowDialog();
                     }
                     else

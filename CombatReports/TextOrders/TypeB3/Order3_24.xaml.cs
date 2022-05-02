@@ -122,7 +122,7 @@ namespace CombatReports.TextOrders.TypeB3
                 var order = orderService.AddOrder(path);
                 if (order != null)
                 {
-                    CustomMessageBox messageBox = new CustomMessageBox(Constant.OrderSavedMessage);
+                    CustomMessageBox messageBox = new CustomMessageBox(Constant.OrderSavedToDbMessage);
                     messageBox.ShowDialog();
                 }
                 else

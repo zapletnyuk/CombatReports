@@ -8,7 +8,7 @@
         Width="890"
         MinHeight="540"
         MinWidth="890"
-        Background="LightBlue">
+        Background="DarkSeaGreen">
 
     <Window.Resources>
         <Style x:Key="Labels">
