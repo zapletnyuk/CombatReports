@@ -40,7 +40,7 @@ namespace CombatReports
 
         private void TextDocumentsComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var formAccessesIds = formAccessService.GetFormAccesses(userProfile).Select(x => x.Id).ToList();
+            var formAccessesIds = formAccessService.GetFormAccesses(userProfile).Select(x => x.FormId).ToList();
 
             switch (TextDocumentsComboBox.SelectedIndex)
             {
@@ -114,7 +114,7 @@ namespace CombatReports
 
         private void TableDocumentsComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var formAccessesIds = formAccessService.GetFormAccesses(userProfile).Select(x => x.Id).ToList();
+            var formAccessesIds = formAccessService.GetFormAccesses(userProfile).Select(x => x.FormId).ToList();
 
             switch (TableDocumentsComboBox.SelectedIndex)
             {
