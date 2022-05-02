@@ -8,9 +8,9 @@
         Icon="Photos/Military-Camouflage.ico"
         Title="Головне меню" 
         Height="415" 
-        Width="880"
+        Width="575"
         MinHeight="415"
-        MinWidth="880">
+        MinWidth="575">
 
     <Window.Resources>
         <Style x:Key="Labels">
@@ -69,6 +69,18 @@
             <Setter Property="Control.VerticalAlignment" Value="Top" />
             <Setter Property="Control.HorizontalAlignment" Value="Left" />
             <Setter Property="Control.Margin" Value="5, 10, 5, 0" />
+        </Style>
+
+        <Style x:Key="LogoutButton">
+            <Setter Property="Control.FontFamily" Value="Times New Roman" />
+            <Setter Property="Control.FontSize" Value="15" />
+            <Setter Property="Control.Width" Value="250" />
+            <Setter Property="Control.Height" Value="25" />
+            <Setter Property="Control.FontWeight" Value="Bold" />
+            <Setter Property="Control.Background" Value="#FFFFFF" />
+            <Setter Property="Control.VerticalAlignment" Value="Top" />
+            <Setter Property="Control.HorizontalAlignment" Value="Left" />
+            <Setter Property="Control.Margin" Value="5, 45, 5, 0" />
         </Style>
     </Window.Resources>
 
@@ -133,5 +145,6 @@
 
         <Button x:Name="SearchButton" Grid.Row="3" Grid.Column="2" Content="Знайти наказ" Style="{StaticResource SearchButton}" Click="SearchButton_Click" />
         <Button x:Name="Db_SearchButton" Grid.Row="4" Grid.Column="0" Content="Переглянути створені накази" Style="{StaticResource DbSearchButton}" Click="Db_SearchButton_Click" />
+        <Button x:Name="LogoutButton" Grid.Row="4" Grid.Column="0" Content="Змінити користувача" Style="{StaticResource LogoutButton}" Click="LogoutButton_Click" />
     </Grid>
 </Window>

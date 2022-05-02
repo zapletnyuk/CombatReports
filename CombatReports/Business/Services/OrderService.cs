@@ -21,12 +21,12 @@ namespace CombatReports.Business.Services
             return database.OrderRepository.GetAll();
         }
 
-        public Order AddOrder(string path)
+        public Order AddOrder(string path, int userId, int formId)
         {
             var hash = hashService.GetHash();
             var (shortFileName, fileData) = GeneratedFileData.GetFileInfo(path, hash);
 
-            Order order = new Order { FileName = shortFileName, FileData = fileData, UserId = 1, FormId = 1310 };
+            Order order = new Order { FileName = shortFileName, FileData = fileData, UserId = userId, FormId = formId };
             database.OrderRepository.Add(order);
             database.Save();
             return order;

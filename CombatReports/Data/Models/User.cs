@@ -1,4 +1,5 @@
 ﻿using CombatReports.Data.Models.Abstractions;
+using System.Collections.Generic;
 
 namespace CombatReports.Data.Models
 {
@@ -10,5 +11,7 @@ namespace CombatReports.Data.Models
         public string MiddleName { get; set; }
         public string UserName { get; set; }
         public byte[] Password { get; set; }
+
+        public List<UserRole> UserRoles { get; set; }
     }
 }

@@ -16,19 +16,23 @@ using Constant = CombatReports.Constants.Constants;
 
 namespace CombatReports
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         private readonly IOrderService orderService;
         private readonly IHashService hashService;
+        private readonly IUserService userService;
+        private readonly UserProfile userProfile;
 
-        public MainWindow(IOrderService orderService, IHashService hashService)
+        public MainWindow(IOrderService orderService, 
+            IHashService hashService,
+            IUserService userService,
+            UserProfile userProfile)
         {
             InitializeComponent();
             this.orderService = orderService;
             this.hashService = hashService;
+            this.userService = userService;
+            this.userProfile = userProfile;
         }
 
         private void TextDocumentsComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -36,23 +40,23 @@ namespace CombatReports
             switch (TextDocumentsComboBox.SelectedIndex)
             {
                 case 0:
-                    Order3_10 form3_10 = new Order3_10(orderService);
+                    Order3_10 form3_10 = new Order3_10(orderService, userProfile);
                     form3_10.ShowDialog();
                     return;
                 case 1:
-                    Order3_24 form3_24 = new Order3_24(orderService);
+                    Order3_24 form3_24 = new Order3_24(orderService, userProfile);
                     form3_24.ShowDialog();
                     return;
                 case 2:
-                    Order4_6 form4_6 = new Order4_6(orderService);
+                    Order4_6 form4_6 = new Order4_6(orderService, userProfile);
                     form4_6.ShowDialog();
                     break;
                 case 3:
-                    Order8_1 form8_1 = new Order8_1(orderService);
+                    Order8_1 form8_1 = new Order8_1(orderService, userProfile);
                     form8_1.ShowDialog();
                     break;
                 case 4:
-                    Order8_2 form8_2 = new Order8_2(orderService);
+                    Order8_2 form8_2 = new Order8_2(orderService, userProfile);
                     form8_2.ShowDialog();
                     break;
             }
@@ -63,23 +67,23 @@ namespace CombatReports
             switch (TableDocumentsComboBox.SelectedIndex)
             {
                 case 0:
-                    Order3_2 form3_2 = new Order3_2(orderService);
+                    Order3_2 form3_2 = new Order3_2(orderService, userProfile);
                     form3_2.ShowDialog();
                     break;
                 case 1:
-                    Order3_3 form3_3 = new Order3_3(orderService);
+                    Order3_3 form3_3 = new Order3_3(orderService, userProfile);
                     form3_3.ShowDialog();
                     break;
                 case 2:
-                    Order3_4 form3_4 = new Order3_4(orderService);
+                    Order3_4 form3_4 = new Order3_4(orderService, userProfile);
                     form3_4.ShowDialog();
                     break;
                 case 3:
-                    Order4_1 form4_1 = new Order4_1(orderService);
+                    Order4_1 form4_1 = new Order4_1(orderService, userProfile);
                     form4_1.ShowDialog();
                     break;
                 case 4:
-                    Order4_2 form4_2 = new Order4_2(orderService);
+                    Order4_2 form4_2 = new Order4_2(orderService, userProfile);
                     form4_2.ShowDialog();
                     break;
             }
@@ -119,6 +123,13 @@ namespace CombatReports
         {
             DataBaseContentDisplaying dbContent = new DataBaseContentDisplaying(orderService, hashService);
             dbContent.ShowDialog();
+        }
+
+        private void LogoutButton_Click(object sender, RoutedEventArgs e)
+        {
+            AuthenticationWindow authenticationWindow = new AuthenticationWindow(orderService, hashService, userService);
+            authenticationWindow.Show();
+            Close();
         }
     }
 }

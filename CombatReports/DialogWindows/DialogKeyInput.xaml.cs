@@ -4,14 +4,14 @@ using Constant = CombatReports.Constants.Constants;
 
 namespace CombatReports.DialogWindows
 {
-    public partial class DialogHashInput : Window
+    public partial class DialogKeyInput : Window
     {
-        public DialogHashInput()
+        public DialogKeyInput()
         {
             InitializeComponent();
         }
 
-        public DialogHashInput(string title, string input)
+        public DialogKeyInput(string title, string input)
         {
             InitializeComponent();
             TitleText = title;

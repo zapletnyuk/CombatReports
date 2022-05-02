@@ -1,0 +1,76 @@
+﻿<Window x:Class="CombatReports.AuthenticationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Icon="Photos/Military-Camouflage.ico"
+        Title="Головне меню" 
+        Height="230" 
+        Width="520"
+        MinHeight="230"
+        MinWidth="520">
+
+    <Window.Resources>
+        <Style x:Key="Labels">
+            <Setter Property="Control.FontFamily" Value="Times New Roman" />
+            <Setter Property="Control.Foreground" Value="White" />
+            <Setter Property="Control.FontSize" Value="25" />
+            <Setter Property="Control.FontWeight" Value="Bold" />
+            <Setter Property="Control.VerticalAlignment" Value="Center" />
+            <Setter Property="Control.HorizontalAlignment" Value="Left" />
+            <Setter Property="Control.Margin" Value="0, 0, 0, 0" />
+        </Style>
+
+        <Style x:Key="TextBox">
+            <Setter Property="Control.FontFamily" Value="Times New Roman" />
+            <Setter Property="Control.FontSize" Value="15" />
+            <Setter Property="Control.Width" Value="240" />
+            <Setter Property="Control.Height" Value="25" />
+            <Setter Property="Control.FontWeight" Value="Bold" />
+            <Setter Property="Control.VerticalAlignment" Value="Top" />
+            <Setter Property="Control.HorizontalAlignment" Value="Left" />
+            <Setter Property="Control.Margin" Value="255, 25, 0, 0" />
+            <Setter Property="Control.Padding" Value="0, 3, 0, 0" />
+        </Style>
+
+        <Style x:Key="LoginButton">
+            <Setter Property="Control.FontFamily" Value="Times New Roman" />
+            <Setter Property="Control.FontSize" Value="15" />
+            <Setter Property="Control.Width" Value="110" />
+            <Setter Property="Control.Height" Value="25" />
+            <Setter Property="Control.FontWeight" Value="Bold" />
+            <Setter Property="Control.Background" Value="#FFFFFF" />
+            <Setter Property="Control.VerticalAlignment" Value="Top" />
+            <Setter Property="Control.HorizontalAlignment" Value="Left" />
+            <Setter Property="Control.Margin" Value="195, 20, 0, 0" />
+        </Style>
+    </Window.Resources>
+
+    <Window.Background>
+        <ImageBrush ImageSource="Photos/Military-Camouflage.jpg" Stretch="Fill" />
+    </Window.Background>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70" />
+            <RowDefinition Height="70" />
+            <RowDefinition Height="60" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="500" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0" Content="Ім'я користувача" Style="{StaticResource Labels}" />
+        <Label Grid.Row="1" Grid.Column="0" Content="Пароль" Style="{StaticResource Labels}" />
+
+        <TextBox x:Name="UserNameField" Grid.Row="0" Grid.Column="0" Style="{StaticResource TextBox}" />
+        <PasswordBox x:Name="PasswordField" Grid.Row="1" Grid.Column="0" Style="{StaticResource TextBox}" />
+
+        <Button x:Name="LoginButton" Grid.Row="2" Grid.Column="0" Content="Підтвердити" Style="{StaticResource LoginButton}" Click="LoginButton_Click" />
+    </Grid>
+</Window>

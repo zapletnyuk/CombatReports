@@ -15,7 +15,7 @@ namespace CombatReports.Helpers
             string keyInput;
 
         KeyInput:
-            var dialogHashInput = new DialogHashInput(Constant.NeedToEnterKeyMessage, "");
+            var dialogHashInput = new DialogKeyInput(Constant.NeedToEnterKeyMessage, "");
             dialogHashInput.ShowDialog();
             keyInput = dialogHashInput.InputText;
 
@@ -53,7 +53,7 @@ namespace CombatReports.Helpers
             string hashInput;
 
         HashInput:
-            var dialogHashInput = new DialogHashInput(Constant.NeedToEnterKeyMessage, "");
+            var dialogHashInput = new DialogKeyInput(Constant.NeedToEnterKeyMessage, "");
             dialogHashInput.ShowDialog();
             hashInput = dialogHashInput.InputText;
 

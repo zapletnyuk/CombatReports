@@ -6,17 +6,20 @@ using System.IO;
 using System.Windows;
 using Constant = CombatReports.Constants.Constants;
 using Word = Microsoft.Office.Interop.Word;
+using CombatReports.Helpers;
 
 namespace CombatReports.TextOrders.TypeB3
 {
     public partial class Order3_24 : Window
     {
         private readonly IOrderService orderService;
+        private readonly UserProfile userProfile;
 
-        public Order3_24(IOrderService orderService)
+        public Order3_24(IOrderService orderService, UserProfile userProfile)
         {
             InitializeComponent();
             this.orderService = orderService;
+            this.userProfile = userProfile;
         }
 
         private void ExampleButton_Click(object sender, RoutedEventArgs e)
@@ -119,7 +122,7 @@ namespace CombatReports.TextOrders.TypeB3
                 objDoc.Close();
                 objWord.Quit();
 
-                var order = orderService.AddOrder(path);
+                var order = orderService.AddOrder(path, userProfile.UserId, Constant.Form324);
                 if (order != null)
                 {
                     CustomMessageBox messageBox = new CustomMessageBox(Constant.OrderSavedToDbMessage);

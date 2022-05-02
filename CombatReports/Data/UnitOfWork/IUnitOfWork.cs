@@ -6,6 +6,7 @@ namespace CombatReports.Data.UnitOfWork
     {
         IOrderRepository OrderRepository { get; }
         IHashRepository HashRepository { get; }
+        IUserRepository UserRepository { get; }
         void Save();
     }
 }

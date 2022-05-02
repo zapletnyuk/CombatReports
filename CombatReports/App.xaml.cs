@@ -40,8 +40,8 @@ namespace CombatReports
 
             ServiceProvider = serviceCollection.BuildServiceProvider();
 
-            var mainWindow = ServiceProvider.GetRequiredService<MainWindow>();
-            mainWindow.ShowDialog();
+            var authenticationWindow = ServiceProvider.GetRequiredService<AuthenticationWindow>();
+            authenticationWindow.ShowDialog();
         }
 
         private void ConfigureServices(IServiceCollection services)
@@ -54,11 +54,14 @@ namespace CombatReports
 
             services.AddScoped<IOrderService, OrderService>();
             services.AddScoped<IHashService, HashService>();
+            services.AddScoped<IUserService, UserService>();
 
             services.AddScoped<IOrderRepository, OrderRepository>();
             services.AddScoped<IHashRepository, HashRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
 
             services.AddScoped(typeof(MainWindow));
+            services.AddScoped(typeof(AuthenticationWindow));
         }
     }
 }
